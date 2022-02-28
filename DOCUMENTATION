@@ -1,0 +1,58 @@
+ARCHITECTURE MVC
+1. PRÉSENTATION
+    Le modèle MVC décrit une manière d'organiser une application WEB en la décomposant en trois parties
+    Modèle - Vue - Controller
+    Ce modèle de conception (design pattern) a été imaginé à la fin des années 1970 pour le langage Smalltalk afin de bien séparer le code de l'interface graphique de la logique applicative. Il est utilisé dans de très nombreux langages: bibliothèques SWING et MODEL 2 (JSP) de JAVA, frameworks PHP, ASP.NET MVC, etc.
+
+2. RÔLE DE CHAQUE COMPOSANT
+    MODÈLE : Ce composant de l'architecture MVC gère l'accès aux données peut s'agir d'un ensemble de fonctions dans la programmation procédurale.
+    VUE: Ce composant s'occupe des interactions avec l'utilisateur : présentation, saisie et validation des données. Il est formé par des pages html, css et js.
+    CONTROLLER : Ce composant gère la logique métier (business logic) c'est-à-dire l'ensemble des services offerts par notre application. Il fait le lien entre l'utilisateur et le reste de l'application en recevant les requêtes (GET ou POST) puis de produire une réponse (les vues).
+    Dans le modèle MVC, on peut aussi avoir les composants tel que :
+    Front Controller: Le contrôle frontal est le composant du modèle MVC par lequel transite toutes les requêtes (GET ou POST) de notre application. Les fonctions de validation, les rôles et principalement le Router.
+    Routeur: Le routeur est le composant du modéle MVC qui recoit la requête transférer par le front controller puis charge le controller correspond à la requête.
+
+CONFIG
+    validator : toutes les fonctions de validation
+    constantes : toutes les constantes
+    router : le routeur
+    role : les fonctions de gestion des autorisations
+    orm
+DATA
+    contient notre fichier json qui représente pour l'instant la BD.
+
+PUBLIC
+Point d'entrée de l'application
+    Chaque requête GET ou POST passe forcément par le fichier index.php qui représente le front controller
+    Etant accessible par tous il est généralement utilisé pour mettre à disposition des fichiers de ressources, principalement les styles css les scripts js et les images
+
+SRC
+    C'est le coeur du projet ! L'endroit où vous passerez le + de temps. Il regroupe tout le code PHP de votre application, c'est ici que vous mettez en place toute la loqiquee de votre application.
+    Les dossiers qui seront obligatoires d'utilisation sont models et controllers
+
+    CONTROLLERS : Ce dossier contient tous les contrôleurs de notre application WEB. Un controller est un fichier PHP qui recoit les requêtes GET ou POST envoyés par un routeur et l'associe à des services ou actions. Lors du traitement des actions, il peut charger des données à partir des modèles. Une fois le traitement terminé le controller génère une réponse qui peut être (HTML, JSON, XML, ...)
+    NB : Aucun traitement d'accès aux données ne doit se faire depuis un controller SUPA IMPORTANT !
+
+    MODELS: Ce dossier contient les fichiers PHP qui définissent les fonctions d'accés aux données.
+
+TEMPLATES
+    Il va contenir les vues, on distingue 2 types de vues:
+    - Les vues de présentation ou Layout ou template ou accueil
+    - Les vues d'action
+    Les dossiers sont ici organisés par controller
+    INCLUDE: C e dossier contient les parties réutilisables dans les vues:
+    - Les importations de fichiers css et js
+    - Le menu
+
+JSON
+Le JAVASCRIPT OBJECT NOTATION (JSON) est un format standard utilisé pour représenter des données structurées de facon semblable aux objets JAVASCRIPT. Il est habituellement utilisé pour structurer et transmettre des données sur des applications WEB (par exemple, envoyer des données depuis un serveur vers un client afin de les afficher sur une page WEB ou vice versa)
+
+$_SERVER
+$_SERVER est un tableau contenant des infos comme les en-têtes,dossiers et chemins du script.
+$_SERVER est manipulé à travers les constantes suivantes.
+SCRIPT_FILENAME() - retourne le chemin absolu vers le fichier contenant le script en cours d'éxécution.
+SCRIPT_NAME() - retourne le nom du script courant. On utilise pour générer des liens dynamiques d'appel de page ou de chargement image.  
+REQUEST_METHOD() : constante qui retourne la méthode de requête utilisée pour accéder à la page par ex GET POST.
+DIRECTORY_SEPARATOR(): constante qui retourne le séparateur de répertoire utilisé dans ce système (/ ou \)
+FILE constante qui renvoie le chemin complet et le nom du fichier PHP en cours d'éxécution.
+dirname(): fonction qui renvoie le chemin du dossier parent

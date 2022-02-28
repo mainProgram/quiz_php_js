@@ -1,0 +1,25 @@
+{
+    "users":[
+        {
+            "lastName": "DIOP",
+            "firstName": "Fazeyna",
+            "login": "fazeynafaye@gmail.com",
+            "password": "passer",
+            "role": "admin",
+            "score": 0 
+        },
+        {
+            "lastName": "DIOP",
+            "firstName": "Awa",
+            "login": "awadiop@gmail.com",
+            "password": "passer",
+            "role": "player",
+            "score": 0 
+        }
+    ],
+    "questions":[
+        {
+            
+        }
+    ]
+}
