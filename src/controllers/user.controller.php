@@ -15,18 +15,20 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             header("Location:".WEB_ROOT);
             exit();
         }
-        if($_REQUEST["action"] == "home"){
-            if(is_admin())
+        switch($_REQUEST["action"]){
+            case "home":
+                if(is_admin())
+                    list_players();
+                else
+                    game();
+            break;
+            case "list_players":
                 list_players();
-            else
-                game();
+            break;
+            default:
+                echo "ERROR 404";
+            break;
         }
-        elseif($_REQUEST["action"] == "list_players"){
-            list_players();
-        }
-        // elseif($_REQUEST["action"] == "register"){
-        //     require_once PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php";
-        // }
     }
     else{
         require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."connection.html.php";

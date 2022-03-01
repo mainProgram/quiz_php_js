@@ -16,3 +16,4 @@ function get_all_players(string $role):array{
             $result[] = $user;
     return $result;
 }
+
