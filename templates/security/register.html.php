@@ -37,12 +37,14 @@
 
    <label for="password2">Confirm Password</label>
     <input type="password" placeholder="" name="password2" id="password2">
-    <?php if(isset($errors["password2"])) echo "<p style='color:red;'>".$errors["password2"]."</p>" ?> 
+    <?php if(isset($errors["incorrectPassword"])) echo "<p style='color:red;'>".$errors["incorrectPassword"]."</p>" ?> 
    <small></small>
+
+   <!-- <input type="file" name="file" id=""> -->
 
     <input type="submit" name="register" id="register" value="Create account">
 </form>
 
-
 <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."register.js"?>"></script>
 
