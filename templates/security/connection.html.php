@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?php echo WEB_PUBLIC."css".DIRECTORY_SEPARATOR."connection.css"?>">
 </head>
 <?php 
-    require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php";
+    // require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php";
     if(isset($_SESSION[KEY_ERRORS]))
         $errors = $_SESSION[KEY_ERRORS];
     unset($_SESSION[KEY_ERRORS]);
@@ -32,8 +32,8 @@
 
         <small><?php if(isset($errors["connection"])) echo "<p style='color:red;'>".$errors["connection"]."</p>" ?></small>
 
-        <div>
-            <input type="text" placeholder="Login" id="login" name="login" value="<?php if(isset($_SESSION["login"])) echo $_SESSION["login"];?>">
+        <div id="login">
+            <input type="text" placeholder="Login" name="login" value="<?php if(isset($_SESSION["login"])) echo $_SESSION["login"];?>">
             <img src="img/ic-login.png" alt="">
         </div>
         <small><?php if(isset($errors["login"])) echo "<p style='color:red;'>".$errors["login"]."</p>" ?></small>
@@ -49,7 +49,7 @@
             <a href="<?=WEB_ROOT."/index.php?controller=security&action=register"?>">Wanna play? Sign up</a>
         </div>
     </form>  
-
+</section>
 
 <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
 

@@ -1,25 +1,208 @@
-#formRegister {
-  height: 80vh;
-  width: 400px;
-  background-color: rgba(255, 255, 255, 0.13);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 10px 35px; }
-  #formRegister input[type="submit"] {
-    margin-bottom: 1%;
-    margin-top: 20px; }
-  #formRegister label {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    font-weight: 500; }
-  #formRegister h3 {
-    font-size: 22px; }
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
+body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/img-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/img-bg.jpg");
+  background-size: cover;
+  font-family: "sans serif";
+  height: 100vh;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.success {
+  border: 2px solid green;
+}
+
+small {
+  color: red;
+}
+
+.container {
+  height: 80vh;
+  background-color: white;
+  width: 40%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.container form {
+  height: 100%;
+  color: white;
+}
+
+.container form .loginForm {
+  background-color: #51bfd0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 2%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 10%;
+}
+
+.container form .loginForm i {
+  margin-right: 2%;
+}
+
+.container form .loginForm h3 {
+  margin-left: 2%;
+}
+
+.container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 7%;
+  width: 90%;
+  background-color: #f0eef1;
+  margin: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container div:hover {
+  border: 1px solid #51bfd0;
+  -webkit-box-shadow: inset 0 0 2px 2px #51bfd0;
+          box-shadow: inset 0 0 2px 2px #51bfd0;
+}
+
+.container div input {
+  margin-left: 2%;
+  border: none;
+  background-color: #f0eef1;
+  width: 90%;
+  outline: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.container div input::-webkit-input-placeholder {
+  padding: 3%;
+}
+
+.container div input:-ms-input-placeholder {
+  padding: 3%;
+}
+
+.container div input::-ms-input-placeholder {
+  padding: 3%;
+}
+
+.container div input::placeholder {
+  padding: 3%;
+}
+
+.container div img, .container div i {
+  width: 30px;
+  margin-right: 3%;
+}
+
+.container .button {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+}
+
+.container .button:hover {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.container .button input[type="submit"] {
+  width: 20%;
+  background-color: #51bfd0;
+  border-radius: 10px;
+  color: white;
+  padding: 0.9rem;
+}
+
+.container .button input[type="submit"]:hover {
+  background-color: transparent;
+  color: #51bfd0;
+  border: 1px solid #51bfd0;
+  cursor: pointer;
+}
+
+.container .button a {
+  margin-left: 5%;
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+
+.container .button img {
+  margin-left: 5%;
+  color: gray;
+  width: 80px;
+}
+
+.container small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2% 0;
+  color: red;
+  width: 90%;
+  margin: auto;
+}
+
+.container input[type="file"] {
+  display: none;
+}
+
+.container .file {
+  width: 90%;
+  background-color: #51bfd0;
+  border-radius: 10px;
+  color: white;
+  padding: 0.9rem;
+}
+
+.container .file:hover {
+  background-color: transparent;
+  color: #51bfd0;
+  border: 1px solid #51bfd0;
+  cursor: pointer;
+}
+
+header {
+  background-color: #052426;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  margin-left: 37%;
+}
+
+header img {
+  width: 50px;
+  margin-left: 30px;
+}
 /*# sourceMappingURL=register.css.map */

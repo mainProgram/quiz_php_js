@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             break;
             case "register":
                 extract($_POST);
-                register($login2, $password, $password2, $lastname, $firstname, $role);
+                register($login2, $password, $password2, $lastname, $firstname, $role, $file);
             break;
             default:
                 echo "ERROR 404";
@@ -81,19 +81,21 @@ function logout(){
     exit();
 }
 
-function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role){
+function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role, $file){
     $errors = [];
     $tab = find_data("users");
 
     $_SESSION["login2"] = $login2;
     $_SESSION["lastname"] = $lastname;
     $_SESSION["firstname"] = $firstname;
+    $_SESSION["file"] = $file;
 
     required_fields("login2", $login2, $errors);
     required_fields("password", $password, $errors);
     required_fields("password2", $password2, $errors);
     required_fields("lastname", $lastname, $errors);
     required_fields("firstname", $firstname, $errors);
+    // required_fields("file", $file, $errors);
 
     if(!isset($errors["login2"])){
         is_mail_valid("login2", $login2, $errors);
@@ -122,7 +124,7 @@ function register(string $login2, string $password, string $password2, string $l
             "score"=> 0 
         );
         if(save_data("users", $newRegistration)){
-            unset($_SESSION["login2"]); unset($_SESSION["lastname"]); unset($_SESSION["firstname"]);
+            unset($_SESSION["login2"]); unset($_SESSION["lastname"]); unset($_SESSION["firstname"]);unset($_SESSION["file"]);
             header("Location:".WEB_ROOT);
         }else{
             header("Location:".WEB_ROOT."?controller=security&action=register&pasbon=pasbon");

@@ -1,50 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo WEB_PUBLIC."css".DIRECTORY_SEPARATOR."register.css"?>">
+</head>
 <?php 
-    require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php";
-    $errors = $_SESSION[KEY_ERRORS];
+    if(isset($_SESSION[KEY_ERRORS]))
+        $errors = $_SESSION[KEY_ERRORS];
     unset($_SESSION[KEY_ERRORS]);
 ?>
 
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
+<header>
+    <img src="img/logo-QuizzSA.png" alt="">
+    <h1>Le plaisir de jouer</h1>
+</header>
+<section class="container">
+    <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
+        <input type="hidden" name="controller" value="security">
+        <input type="hidden" name="action" value="register">
+        <input type="hidden" name="role" value="player">
 
-<form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
-    <h3>Register Here</h3>
-    <input type="hidden" name="controller" value="security">
-    <input type="hidden" name="action" value="register">
-    <input type="hidden" name="role" value="player">
+        <section class="loginForm">   
+            <h3>Registration Form</h3>
+        </section>
 
-    <label for="firstname">First name</label>
-    <input type="text" placeholder="" id="firstname" name="firstname" value="<?php if(isset($_SESSION["firstname"])) echo $_SESSION["firstname"];?>">
-    <?php if(isset($errors["firstname"])) echo "<p style='color:red;'>".$errors["firstname"]."</p>" ?>
-   <small></small>
+        <div>
+            <input type="text" placeholder="First name" id="firstname" name="firstname" value="<?php if(isset($_SESSION["firstname"])) echo $_SESSION["firstname"];?>">
+        </div>
+        <small><?php if(isset($errors["firstname"])) echo "<p style='color:red;'>".$errors["firstname"]."</p>" ?></small>
 
-   <label for="lastname">Last name</label>
-    <input type="text" placeholder="" id="lastname" name="lastname" value="<?php if(isset($_SESSION["lastname"])) echo $_SESSION["lastname"];?>">
-    <?php if(isset($errors["lastname"])) echo "<p style='color:red;'>".$errors["lastname"]."</p>" ?>
-   <small></small>
+        <div>
+            <input type="text" placeholder="Last Name" id="lastname" name="lastname" value="<?php if(isset($_SESSION["lastname"])) echo $_SESSION["lastname"];?>">
+        </div>
+        <small><?php if(isset($errors["lastname"])) echo "<p style='color:red;'>".$errors["lastname"]."</p>" ?></small>
 
-    <label for="login2">Login</label>
-    <input type="text" placeholder="" id="login2" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
-    <?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?>
-   <small></small>
+        <div>
+            <input type="text" placeholder="Login" id="login2" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
+        </div>
+        <small><?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?></small>
 
-    <label for="password">Password</label>
-    <input type="password" placeholder="" name="password" id="password">
-    <?php if(isset($errors["password"])) echo "<p style='color:red;'>".$errors["password"]."</p>" ?> 
-   <small></small>
+        <div>
+            <input type="password" placeholder="Password" name="password" id="password">
+        </div>
+        <small><?php if(isset($errors["password"])) echo "<p style='color:red;'>".$errors["password"]."</p>" ?></small>
 
-   <label for="password2">Confirm Password</label>
-    <input type="password" placeholder="" name="password2" id="password2">
-    <?php if(isset($errors["incorrectPassword"])) echo "<p style='color:red;'>".$errors["incorrectPassword"]."</p>" ?> 
-   <small></small>
+        <div>
+            <input type="password" placeholder="Confirm password" name="password2" id="password2">
+        </div>
+        <small>
+        <?php 
+            if(isset($errors["incorrectPassword"]))
+                echo "<p style='color:red;'>".$errors["incorrectPassword"]."</p>" ;
+            elseif(isset($errors["password2"])) 
+                echo "<p style='color:red;'>".$errors["password2"]."</p>" ;
+        ?> 
+        </small>
+        
+        <div class="button">
+            <label for="file" class="file">Choose an image for your avatar profile</label>
+            <input type="file" name="file" id="file"  accept="image/*" value="<?php if(isset($_SESSION["file"])) echo $_SESSION["file"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+            <img id="output" alt="Avatar" src=""/>
+        </div>
+        <small> <?php if(isset($errors["file"])) echo "<p style='color:red;'>".$errors["file"]."</p>" ?> </small>
 
-   <!-- <input type="file" name="file" id=""> -->
-
-    <input type="submit" name="register" id="register" value="Create account">
-</form>
+        <div class="button">
+            <input type="submit" name="register" id="register" value="Sign Up">
+            <a href="<?=WEB_ROOT."/index.php"?>">Already signed? Sign In</a>
+        </div>
+    </form>
+</section>
 
 <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
+
 <script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."register.js"?>"></script>
 
