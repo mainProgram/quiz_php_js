@@ -25,9 +25,9 @@
     <?php if(isset($errors["lastname"])) echo "<p style='color:red;'>".$errors["lastname"]."</p>" ?>
    <small></small>
 
-    <label for="Login">Login</label>
-    <input type="text" placeholder="" id="login" name="login" value="<?php if(isset($_SESSION["login"])) echo $_SESSION["login"];?>">
-    <?php if(isset($errors["login"])) echo "<p style='color:red;'>".$errors["login"]."</p>" ?>
+    <label for="login2">Login</label>
+    <input type="text" placeholder="" id="login2" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
+    <?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?>
    <small></small>
 
     <label for="password">Password</label>
@@ -36,7 +36,7 @@
    <small></small>
 
    <label for="password2">Confirm Password</label>
-    <input type="password2" placeholder="" name="password2" id="password2">
+    <input type="password" placeholder="" name="password2" id="password2">
     <?php if(isset($errors["password2"])) echo "<p style='color:red;'>".$errors["password2"]."</p>" ?> 
    <small></small>
 

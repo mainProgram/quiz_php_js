@@ -12,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             break;
             case "register":
                 extract($_POST);
-                register($login, $password, $password2, $lastname, $firstname, $role);
+                register($login2, $password, $password2, $lastname, $firstname, $role);
             break;
             default:
                 echo "ERROR 404";
@@ -49,12 +49,10 @@ function connection(string $login, string $password){
     $errors = [];
     $_SESSION["login"] = $login;
     required_fields("login", $login, $errors);
-    if(!isset($errors["login"]))
-        valid_mail("login", $login, $errors);
-
     required_fields("password", $password, $errors);
-    if(!isset($errors["password"]))
-        valid_password("password", $password, $errors);
+
+    if(!isset($errors["login"]))
+        is_mail_valid("login", $login, $errors);
 
     if(count($errors) == 0){
         $userConnect = find_user_login_and_password($login, $password);
@@ -83,28 +81,30 @@ function logout(){
     exit();
 }
 
-function register(string $login, string $password, string $password2, string $lastname, string $firstname, string $role){
+function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role){
     $errors = [];
+    $tab = find_data("users");
 
-    $_SESSION["login"] = $login;
+    $_SESSION["login2"] = $login2;
     $_SESSION["lastname"] = $lastname;
     $_SESSION["firstname"] = $firstname;
-    $_SESSION["role"] = $role;
 
-    required_fields("login", $login, $errors);
+    required_fields("login2", $login2, $errors);
     required_fields("password", $password, $errors);
     required_fields("password2", $password2, $errors);
     required_fields("lastname", $lastname, $errors);
     required_fields("firstname", $firstname, $errors);
 
-    if(!isset($errors["login"]))
-        is_mail_valid("login", $login, $errors);
+    if(!isset($errors["login2"])){
+        is_mail_valid("login2", $login2, $errors);
+        is_mail_already_used("login2", $login2, $tab, $errors);
+    }
 
     if(!isset($errors["firstname"]))
-        is_mail_valid("firstname", $firstname, $errors);
+        is_name_valid("firstname", $firstname, $errors);
 
     if(!isset($errors["lastname"]))
-        valid_password("lastname", $lastname, $errors);
+    is_name_valid("lastname", $lastname, $errors);
 
     if(!isset($errors["password"]))
         valid_password("password", $password, $errors);
@@ -113,21 +113,23 @@ function register(string $login, string $password, string $password2, string $la
         are_passwords_the_same("incorrectPassword", $password, $password2, $errors);
 
     if(count($errors) == 0){
-        // $userConnect = find_user_login_and_password($login, $password);
-        // if(count($userConnect) != 0){
-        //     unset($_SESSION["login"]);
-        //     $_SESSION[KEY_USER_CONNECT] = $userConnect;
-        //     header("Location:".WEB_ROOT."?controller=user&action=home");
-        // }
-        // else{
-        //     $errors["connection"] = "Invalid login or password !";
-        //     $_SESSION[KEY_ERRORS] = $errors;
-        //     header("Location:".WEB_ROOT);
-        // }
-        echo "hi";
+        $newRegistration = array(
+            "lastName"=> $lastname,
+            "firstName"=> $firstname,
+            "login"=> $login2,
+            "password"=> $password,
+            "role"=> $role,
+            "score"=> 0 
+        );
+        if(save_data("users", $newRegistration)){
+            unset($_SESSION["login2"]); unset($_SESSION["lastname"]); unset($_SESSION["firstname"]);
+            header("Location:".WEB_ROOT);
+        }else{
+            header("Location:".WEB_ROOT."?controller=security&action=register&pasbon=pasbon");
+        }
     }
     else{
         $_SESSION[KEY_ERRORS] = $errors;
-        header("Location:".WEB_ROOT);
+        header("Location:".WEB_ROOT."?controller=security&action=register");
     }
 }
