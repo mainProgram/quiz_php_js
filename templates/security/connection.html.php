@@ -38,8 +38,8 @@
         </div>
         <small><?php if(isset($errors["login"])) echo "<p style='color:red;'>".$errors["login"]."</p>" ?></small>
 
-        <div>
-            <input type="password" placeholder="Password" name="password" id="password">
+        <div id="password">
+            <input type="password" placeholder="Password" name="password">
             <i class="material-icons" style="font-size:36px;color:rgb(190, 190, 190);">lock</i>
         </div>
         <small><?php if(isset($errors["password"])) echo "<p style='color:red;'>".$errors["password"]."</p>" ?> </small>
@@ -53,3 +53,4 @@
 
 <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
 
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."connection.js"?>"></script>

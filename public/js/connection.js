@@ -3,9 +3,6 @@ const login = document.getElementById("login");
 const password = document.getElementById("password");
 const connect = document.getElementById("connect");
 const array = [login, password];
-const errorLogin = document.getElementById("errorLogin");
-const errorPassword = document.getElementById("errorPassword");
-
 
 //--------------------------------------------------------------------EVENTS----------------------------------------------
 form.addEventListener("submit", function(e) {
@@ -14,6 +11,10 @@ form.addEventListener("submit", function(e) {
         return false;
         // return true;
     }
+});
+
+login.addEventListener("input", ()=>{
+    isMailCorrect(login);
 });
 
 // button.addEventListener("click", function () {

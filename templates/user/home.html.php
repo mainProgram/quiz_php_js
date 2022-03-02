@@ -1,16 +1,67 @@
-<?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php"; ?>
-
-<ul>
-    <li><a class="active" href="#home">Home</a></li>
-    <?php if(is_admin()): ?>
-        <li><a href="<?=WEB_ROOT."?controller=user&action=list_players"?>">Players</a></li>
-    <?php endif ?>
-    <li><a href=<?=WEB_ROOT."?controller=security&action=logout"?>>Log out</a></li>
-</ul>
-
-<?php
-    // Affichage du contenu des vues /
-    echo $content_for_views;
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=WEB_PUBLIC."css".DIRECTORY_SEPARATOR."home.css"?>">
+</head>
+<body>
+    <!-- <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <?php if(is_admin()): ?>
+            <li><a href="<?=WEB_ROOT."?controller=user&action=list_players"?>">Players</a></li>
+        <?php endif ?>
+        <li><a href=<?=WEB_ROOT."?controller=security&action=logout"?>>Log out</a></li>
+    </ul> -->
+    <header>
+        <img src="img/logo-QuizzSA.png" alt="">
+        <h1>Le plaisir de jouer</h1>
+    </header>
+    <section class="container">
+        <section class="head">
+            <h1>Creation and settings of the quizzes</h1>
+            <a href=<?=WEB_ROOT."?controller=security&action=logout"?>>Log Out</a>
+        </section>
+        <section class="body">
+            <section class="left">
+                <div class="left_head">
+                    <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="PHOTO">
+                    <p>LOGIN: </p>
+                </div>
+                <div class="left_body">
+                    <div class="setting">
+                        <small>List of the questions</small>
+                        <img src="img/ic-liste.png" alt="list">
+                    </div>
+                    <div class="setting">
+                        <small>Create an admin</small>
+                        <img src="img/ic-ajout.png" alt="plus">
+                    </div>
+                    <div class="setting">
+                        <small>List of the players</small>
+                        <img src="img/ic-liste.png" alt="list">
+                    </div>
+                    <div class="setting">
+                        <small>Create a question</small>
+                        <img src="img/ic-ajout.png" alt="plus">
+                    </div>
+                </div>
+            </section>
+            <section class="right">
+                <h1>List of all players based on score</h1>
+                <?php
+                    // Affichage du contenu des vues /
+                    echo $content_for_views;
+                ?>
+            </section>
+        </section>
+    </section>
 
 <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>

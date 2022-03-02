@@ -34,4 +34,229 @@ li a:hover:not(.active) {
 li .active {
   background-color: #04AA6D;
 }
+
+body {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/img-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/img-bg.jpg");
+  background-size: cover;
+  font-family: "sans serif";
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+header {
+  background-color: #052426;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header h1 {
+  margin-left: 37%;
+}
+
+header img {
+  width: 50px;
+  margin-left: 30px;
+}
+
+i {
+  color: #080710;
+  -webkit-transform: scale(3);
+          transform: scale(3);
+  margin-left: 5%;
+}
+
+.container {
+  margin-top: 2%;
+  background-color: #f0eef1;
+  width: 80%;
+  margin-left: 10%;
+  height: 80vh;
+}
+
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #51bfd0;
+  padding: 2rem;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.head h1 {
+  width: 60%;
+  margin-left: 25%;
+  text-transform: uppercase;
+}
+
+.body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.left, .right {
+  margin-top: 3%;
+  width: 55%;
+  background-color: white;
+  height: 60vh;
+}
+
+.left {
+  width: 35%;
+  height: 50vh;
+}
+
+.left_head {
+  background-color: #51bfd0;
+  width: 100%;
+  height: 35%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left_head img {
+  padding: 2%;
+  margin-left: 10%;
+  margin-right: 3%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid;
+}
+
+.left_body {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 65%;
+}
+
+.setting {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 25%;
+}
+
+.setting img {
+  width: 40px;
+  margin-right: 5%;
+}
+
+.setting small {
+  font-size: 1.3rem;
+  margin-left: 5%;
+}
+
+.setting:hover {
+  border-left: 5px solid green;
+  background-color: #f1eaea;
+}
+
+.setting:hover img[alt="plus"] {
+  content: url("../img/ic-ajout-active.png");
+}
+
+.setting:hover img[alt="list"] {
+  content: url("../img/ic-liste-active.png");
+}
+
+.right h1 {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+  font-size: 1.2rem;
+  margin: 2% 0;
+}
+
+.list_players {
+  width: 80%;
+  margin-left: 10%;
+  height: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list_players table {
+  padding: 1%;
+  color: gray;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #51bfd0;
+  width: 100%;
+  height: 88%;
+}
+
+.list_players table th {
+  text-align: start;
+}
+
+.list_players a {
+  width: 20%;
+  -ms-flex-item-align: end;
+      -ms-grid-row-align: end;
+      align-self: end;
+}
+
+a {
+  text-decoration: none;
+  text-align: center;
+  margin-left: 5%;
+  padding: 0.5rem 0.5rem;
+  background-color: #59d9e2;
+  border: none;
+  color: white;
+  width: 10%;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  background-color: #f0eef1;
+  color: #51bfd0;
+}
 /*# sourceMappingURL=home.css.map */

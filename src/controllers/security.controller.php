@@ -116,8 +116,8 @@ function register(string $login2, string $password, string $password2, string $l
 
     if(count($errors) == 0){
         $newRegistration = array(
-            "lastName"=> $lastname,
-            "firstName"=> $firstname,
+            "lastName"=> strtoupper($lastname),
+            "firstName"=> ucwords($firstname),
             "login"=> $login2,
             "password"=> $password,
             "role"=> $role,

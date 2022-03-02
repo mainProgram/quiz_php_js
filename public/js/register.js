@@ -16,3 +16,14 @@ const array2 = [login2, password, password2, firstname, lastname];
    
 // });
 
+login.addEventListener("input", ()=>{
+    isMailCorrect(login);
+});
+
+
+password.firstElementChild.addEventListener("input", ()=>{
+    if(password.firstElementChild.value.trim() != "")
+        showSuccess(password)
+    else
+        showError(password, "Field is required!")
+});
