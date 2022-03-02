@@ -1,29 +1,31 @@
 <?php 
-    // if(isset($_SESSION[KEY_ERRORS]))
-    //     $errors = $_SESSION[KEY_ERRORS];
-    // unset($_SESSION[KEY_ERRORS]);
+    if(isset($_SESSION[KEY_ERRORS]))
+        $errors = $_SESSION[KEY_ERRORS];
+    unset($_SESSION[KEY_ERRORS]);
 ?>
 <div class="containerFormRegistration">
     <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
-       <input type="hidden" name="controller" value="security">
-       <input type="hidden" name="action" value="register">
+        <input type="hidden" name="controller" value="security">
+        <input type="hidden" name="action" value="register">
    
-       <?php if(is_admin()) : ?>
-           <input type="hidden" name="role" value="admin">
-       <?php else : ?>
-           <input type="hidden" name="role" value="player">
-       <?php endif ?>
-   
-       <section class="loginForm">   
-           <h3>Sign Up</h3>
-           <p>Create an admin</p>
-       </section>
-   
-       <div>
+        <?php if(is_admin()) : ?>
+            <input type="hidden" name="role" value="admin">
+        <?php else : ?>
+            <input type="hidden" name="role" value="player">
+        <?php endif ?>
+        
+        <section class="loginForm">   
+            <h3>Sign Up</h3>
+            <?php if(is_admin()) : ?>
+                <p>Create an admin</p>
+            <?php endif ?>
+        </section>
+        
+        <div>
            <label for="firstname">First Name</label>
            <input type="text" id="firstname" name="firstname" value="<?php if(isset($_SESSION["firstname"])) echo $_SESSION["firstname"];?>">
-       </div>
-       <small><?php if(isset($errors["firstname"])) echo "<p style='color:red;'>".$errors["firstname"]."</p>" ?></small>
+        </div>
+        <small><?php if(isset($errors["firstname"])) echo "<p style='color:red;'>".$errors["firstname"]."</p>" ?></small>
    
        <div>
            <label for="lastname">Last Name</label>
@@ -66,8 +68,13 @@
        <div class="button">
            <input type="submit" name="register" id="register" value="Create account">
        </div>
+        <?php if(isset($_SESSION["created_account"])) echo "<h2>".$_SESSION['created_account']."</h2>" ?>
+        <?php unset($_SESSION['created_account']); ?>
     </form>
-    <div class="the_avatar">
-        <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar">
-    </div>
+
+    <?php if(is_admin()) : ?>
+        <div class="the_avatar">
+            <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar">
+        </div>
+    <?php endif ?>
 </div>

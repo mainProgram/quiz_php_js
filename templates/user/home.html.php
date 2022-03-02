@@ -13,13 +13,6 @@
     <link rel="stylesheet" href="<?=WEB_PUBLIC."css".DIRECTORY_SEPARATOR."home.css"?>">
 </head>
 <body>
-    <!-- <ul>
-        <li><a class="active" href="#home">Home</a></li>
-        <?php if(is_admin()): ?>
-            <li><a href="<?=WEB_ROOT."?controller=user&action=list_players"?>">Players</a></li>
-        <?php endif ?>
-        <li><a href=<?=WEB_ROOT."?controller=security&action=logout"?>>Log out</a></li>
-    </ul> -->
     <header>
         <img src="img/logo-QuizzSA.png" alt="">
         <h1>Le plaisir de jouer</h1>

@@ -11,10 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //TRAITEMENTS DES REQUETES GET
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
-        if(!is_connect()){
-            header("Location:".WEB_ROOT);
-            exit();
-        }
+        // if(!is_connect()){
+        //     header("Location:".WEB_ROOT);
+        //     exit();
+        // }
         switch($_REQUEST["action"]){
             case "home":
                 if(is_admin())
@@ -30,6 +30,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             break;
             case "create_admin":
                 create_admin();
+            break;
+            case "create_player":
+                create_player();
             break;
             case "create_questions":
                 create_questions();
@@ -78,6 +81,14 @@ function create_admin(){
     $content_for_views = ob_get_clean();
 
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
+}
+
+function create_player(){
+    ob_start();
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+    $content_for_views = ob_get_clean();
+
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");
 }
 
 

@@ -33,7 +33,18 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             break;
             case "register":
                 unset($_SESSION["login"]);
-                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."register.html.php";
+                if(is_admin()){
+                    ob_start();
+                        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+                    $content_for_views = ob_get_clean();
+                    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");     
+                }
+                else{
+                    ob_start();
+                        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+                    $content_for_views = ob_get_clean();
+                    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");     
+                }
             break;
             default:
                 echo "ERROR 404";
@@ -117,7 +128,7 @@ function register(string $login2, string $password, string $password2, string $l
     if(count($errors) == 0){
         $newRegistration = array(
             "lastName"=> strtoupper($lastname),
-            "firstName"=> ucwords($firstname),
+            "firstName"=> ucwords(strtolower($firstname)),
             "login"=> $login2,
             "password"=> $password,
             "role"=> $role,
@@ -125,8 +136,20 @@ function register(string $login2, string $password, string $password2, string $l
             "score"=> 0 
         );
         if(save_data("users", $newRegistration)){
-            unset($_SESSION["login2"]); unset($_SESSION["lastname"]); unset($_SESSION["firstname"]);unset($_SESSION["avatar"]);
-            header("Location:".WEB_ROOT);
+            ob_start();
+                $_SESSION["created_account"] =  "Account created !";
+                if(is_admin()){
+                    ob_start();
+                        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+                    $content_for_views = ob_get_clean();
+                    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");     
+                }
+                else{
+                    ob_start();
+                        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+                    $content_for_views = ob_get_clean();
+                    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");     
+                }  
         }else{
             header("Location:".WEB_ROOT."?controller=security&action=register&pasbon=pasbon");
         }

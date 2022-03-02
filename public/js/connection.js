@@ -6,18 +6,20 @@ const array = [login, password];
 
 //--------------------------------------------------------------------EVENTS----------------------------------------------
 form.addEventListener("submit", function(submit) {
-    if(isFieldEmpty(array)==false){
+    if(isFieldEmpty(array)==false || !isMailCorrect(login)){
         submit.preventDefault();
         return false;
         // return true;
     }
 });
 
-login.addEventListener("input", ()=>{
+login.addEventListener("blur", ()=>{
+    if(login.firstElementChild.value.trim() == "")
+        showError(login, "Field is required !");
     isMailCorrect(login);
 });
 
-password.addEventListener("input", ()=>{
+password.addEventListener("blur", ()=>{
     if(password.firstElementChild.value.trim() == "")
         showError(password, "Field is required !");
     else

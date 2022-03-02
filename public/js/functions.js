@@ -18,7 +18,7 @@ function isFieldEmpty(array){
             bool = false;
         }
         else
-            showSuccess(data)                             
+            showSuccess(array[index])                             
     return bool;
 } 
 
@@ -28,10 +28,14 @@ function isMailCorrect(data){
 
     string = data.firstElementChild.value.trim().toLowerCase();
     
-    if(regex.test(string)) 
+    if(regex.test(string)) {
         showSuccess(data)                             
-    else
+        return true;
+    }
+    else{
         showError(data, "Invalid email adress!");
+        return false;
+    }
 }
 
 function isLengthCorrect(data, min, max){
