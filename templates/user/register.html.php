@@ -8,7 +8,7 @@
        <input type="hidden" name="controller" value="security">
        <input type="hidden" name="action" value="register">
    
-       <?php if(is_connect()) : ?>
+       <?php if(is_admin()) : ?>
            <input type="hidden" name="role" value="admin">
        <?php else : ?>
            <input type="hidden" name="role" value="player">

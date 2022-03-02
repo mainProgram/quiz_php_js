@@ -5,9 +5,9 @@ const connect = document.getElementById("connect");
 const array = [login, password];
 
 //--------------------------------------------------------------------EVENTS----------------------------------------------
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function(submit) {
     if(isFieldEmpty(array)==false){
-        e.preventDefault();
+        submit.preventDefault();
         return false;
         // return true;
     }

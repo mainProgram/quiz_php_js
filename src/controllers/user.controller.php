@@ -56,11 +56,20 @@ function list_players(){
 }
 
 function list_questions(){
+    ob_start();
+        $questions = find_data("questions");
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."listeQuestions.html.php");
+    $content_for_views = ob_get_clean();
 
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
 
 function create_questions(){
-    
+    ob_start();
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."createQuestions.html.php");
+    $content_for_views = ob_get_clean();
+
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
 
 function create_admin(){

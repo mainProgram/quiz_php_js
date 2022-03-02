@@ -9,33 +9,7 @@ $bleu : #51bfd0;
     margin: 0;
     box-sizing: border-box;
 }
-
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
   
-li {
-    float: left;
-    a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-    a:hover:not(.active) {
-        background-color: #111;
-    }
-    .active {
-      background-color: #04AA6D;
-    }
-}
-  
-
 body{
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../img/img-bg.jpg");
     background-size: cover;
@@ -339,5 +313,114 @@ i{
             cursor: pointer;
         }
     }
+    }
+}
+
+.containerCreateQuestions{
+    height: 100%;
+    h1{
+        text-transform: uppercase;
+        color: $bleu;
+        text-align: start;
+        font-size: 1.4rem;
+        margin: 0;
+        margin-left: 10%;
+        margin-bottom: 1%;
+    }
+    form{
+        height: 88%;
+        padding-top: 0.5%;
+        border-radius: 10px;
+        border: 1px solid $bleu;
+        width: 90%;
+        margin-left: 5%;
+    }
+    input[type="submit"]{
+        color: white;
+        background-color: $bleu;
+        padding: 1em;
+        border: none;
+        outline: none;
+        width: 12%;
+        margin-left: 86%;
+        &:hover{
+            color: $bleu;
+            border: 1px solid $bleu;
+            background-color: transparent;
+        }
+    }
+    textarea, #number_of_points, #type_of_answer{
+        margin-right: 15%;
+        resize: none;
+        background-color: $gris;
+    }
+    .question{
+        display: flex;
+        justify-content: space-between;
+        margin-left: 2%;
+        width: 96%;
+        align-items: center;
+        height: 13%;
+        input, select, textarea{
+            padding: 1em;
+            border: none;
+            border-right: 1px solid $bleu;
+            border-bottom: 1px solid $bleu;
+            outline: none;
+            width: 60%;
+            margin-left: 2%;
+        }
+        textarea{
+            padding: 0.5% 2%;
+        }
+        input[type="checkbox"]{
+            width:22px;
+            height:22px;
+        }
+        img{
+            width: 20px;
+        }
+        #answer1{
+            margin-left: 14%;
+            background-color: $gris;
+        }
+        label{  
+            color: gray;
+        }
+    }
+}
+
+.list_questions{
+    width: 80%;
+    margin-left: 10%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    li{
+        color: gray;
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    ul{
+        font-size: 1rem;
+        color: black;
+    }
+    a{
+        width: 20%;
+        align-self: end;
+        text-decoration: none;
+        text-align: center;
+        margin-left: 5% ;
+        padding: 0.5rem 0.5rem ;
+        background-color: rgb(89, 217, 226);
+        border: none;
+        color: white;
+        width: 10%;
+        font-size: 1.2rem;
+        &:hover{
+            background-color: $gris;
+            color: $bleu;
+        }
     }
 }

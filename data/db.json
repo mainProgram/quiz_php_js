@@ -8,6 +8,27 @@
         {"lastName":"Faye","firstName":"Khadijay","login":"fayeKhady@gmail.com","password":"hady22","role":"player","score":0, "avatar":""}
     ],
     "questions":[
-        
+        {   
+            "question":"Who is the best football player?",
+            "score":"10",
+            "type":"one",
+            "answers":{
+                "answer1":"Sadio MANÉ",
+                "answer2":"Lionel Messi",
+                "answer3":"CAVANI",
+                "answer4":"FADIGA"
+            }
+        },
+        {   
+            "question":"What are the best colors ?",
+            "score":"100",
+            "type":"many",
+            "answers":{
+                "answer1":"White",
+                "answer2":"Black",
+                "answer3":"Blue",
+                "answer4":"Yellow"
+            }
+        }
     ]
 }

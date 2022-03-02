@@ -9,6 +9,9 @@
             case "user":
                 require_once PATH_SRC."controllers/user.controller.php";
             break;
+            case "question":
+                require_once PATH_SRC."controllers/question.controller.php";
+            break;
             default:
                 echo "ERROR 404";
             break;
