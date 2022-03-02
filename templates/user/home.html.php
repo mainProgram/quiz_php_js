@@ -37,25 +37,32 @@
                 </div>
                 <div class="left_body">
                     <div class="setting">
-                        <small>List of the questions</small>
-                        <img src="img/ic-liste.png" alt="list">
+                        <a href="<?=WEB_ROOT."?controller=user&action=list_questions"?>">
+                            <small>List of the questions</small>
+                            <img src="img/ic-liste.png" alt="list">
+                        </a>
                     </div>
                     <div class="setting">
-                        <small>Create an admin</small>
-                        <img src="img/ic-ajout.png" alt="plus">
+                        <a href="<?=WEB_ROOT."?controller=user&action=create_admin"?>">
+                            <small>Create an admin</small>
+                            <img src="img/ic-ajout.png" alt="plus">
+                        </a>
                     </div>
                     <div class="setting">
-                        <small>List of the players</small>
-                        <img src="img/ic-liste.png" alt="list">
+                        <a href="<?=WEB_ROOT."?controller=user&action=list_players"?>">
+                            <small>List of the players</small>
+                            <img src="img/ic-liste.png" alt="list">
+                        </a>
                     </div>
                     <div class="setting">
-                        <small>Create a question</small>
-                        <img src="img/ic-ajout.png" alt="plus">
+                        <a href="<?=WEB_ROOT."?controller=user&action=create_questions"?>">
+                            <small>Create a question</small>
+                            <img src="img/ic-ajout.png" alt="plus">
+                        </a>
                     </div>
                 </div>
             </section>
             <section class="right">
-                <h1>List of all players based on score</h1>
                 <?php
                     // Affichage du contenu des vues /
                     echo $content_for_views;

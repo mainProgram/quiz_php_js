@@ -17,6 +17,14 @@ login.addEventListener("input", ()=>{
     isMailCorrect(login);
 });
 
+password.addEventListener("input", ()=>{
+    if(password.firstElementChild.value.trim() == "")
+        showError(password, "Field is required !");
+    else
+        showSuccess(password);
+    //is_valid_password
+});
+
 // button.addEventListener("click", function () {
 //     isFieldEmpty(array);
 //     isLengthCorrect(username, 3, 20);

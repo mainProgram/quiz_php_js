@@ -104,6 +104,23 @@ i {
   text-transform: uppercase;
 }
 
+.head a {
+  text-decoration: none;
+  text-align: center;
+  margin-left: 5%;
+  padding: 0.5rem 0.5rem;
+  background-color: #59d9e2;
+  border: none;
+  color: white;
+  width: 10%;
+  font-size: 1.2rem;
+}
+
+.head a:hover {
+  background-color: #f0eef1;
+  color: #51bfd0;
+}
+
 .body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -163,6 +180,16 @@ i {
 }
 
 .setting {
+  height: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.setting a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -172,7 +199,9 @@ i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 25%;
+  width: 100%;
+  text-decoration: none;
+  color: gray;
 }
 
 .setting img {
@@ -241,9 +270,6 @@ i {
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
-}
-
-a {
   text-decoration: none;
   text-align: center;
   margin-left: 5%;
@@ -255,8 +281,177 @@ a {
   font-size: 1.2rem;
 }
 
-a:hover {
+.list_players a:hover {
   background-color: #f0eef1;
   color: #51bfd0;
+}
+
+.containerFormRegistration {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+.containerFormRegistration .the_avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 30%;
+  height: 90%;
+}
+
+.containerFormRegistration .the_avatar img {
+  margin-left: 2%;
+  color: gray;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px solid #51bfd0;
+}
+
+.containerFormRegistration form {
+  height: 100%;
+  width: 60%;
+  color: white;
+}
+
+.containerFormRegistration form .loginForm {
+  background-color: white;
+  color: gray;
+  margin-bottom: 2%;
+  border-bottom: 1px solid rgba(109, 107, 107, 0.7);
+  height: 8%;
+}
+
+.containerFormRegistration form .loginForm h3, .containerFormRegistration form .loginForm p {
+  margin-left: 5%;
+}
+
+.containerFormRegistration form .loginForm h3 {
+  text-transform: uppercase;
+}
+
+.containerFormRegistration form label {
+  display: block;
+}
+
+.containerFormRegistration form input {
+  padding: 0.4rem;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-size: 20px;
+  font-weight: bold;
+  -webkit-box-shadow: inset 0 0 4px 4px #f0eef1;
+          box-shadow: inset 0 0 4px 4px #f0eef1;
+}
+
+.containerFormRegistration form input:hover {
+  border: 1px solid #51bfd0;
+  -webkit-box-shadow: inset 0 0 2px 2px #51bfd0;
+          box-shadow: inset 0 0 2px 2px #51bfd0;
+}
+
+.containerFormRegistration form small {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0.7% 0;
+  color: red;
+  width: 90%;
+  margin: auto;
+}
+
+.containerFormRegistration form div {
+  color: gray;
+  width: 90%;
+  margin: auto;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.containerFormRegistration form .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.containerFormRegistration form .button:hover {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.containerFormRegistration form .button input[type="submit"] {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+  margin-top: 1%;
+  width: 37%;
+  text-align: center;
+  margin-left: 30%;
+  background-color: #51bfd0;
+  color: white;
+  padding: 0.6rem;
+}
+
+.containerFormRegistration form .button input[type="submit"]:hover {
+  background-color: transparent;
+  color: #51bfd0;
+  border: 1px solid #51bfd0;
+  cursor: pointer;
+}
+
+.containerFormRegistration form .button a {
+  margin-left: 5%;
+  text-decoration: none;
+  color: gray;
+  font-weight: bold;
+}
+
+.containerFormRegistration form .button img {
+  margin-left: 2%;
+  color: gray;
+  width: 40px;
+}
+
+.containerFormRegistration form input[type="file"] {
+  display: none;
+}
+
+.containerFormRegistration form .avatar {
+  width: 32%;
+  text-align: center;
+  background-color: #51bfd0;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  padding: 0.6rem;
+}
+
+.containerFormRegistration form .avatar:hover {
+  background-color: transparent;
+  color: #51bfd0;
+  border: 1px solid #51bfd0;
+  cursor: pointer;
 }
 /*# sourceMappingURL=home.css.map */

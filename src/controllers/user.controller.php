@@ -25,6 +25,15 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             case "list_players":
                 list_players();
             break;
+            case "list_questions":
+                list_questions();
+            break;
+            case "create_admin":
+                create_admin();
+            break;
+            case "create_questions":
+                create_questions();
+            break;
             default:
                 echo "ERROR 404";
             break;
@@ -45,6 +54,24 @@ function list_players(){
 
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
+
+function list_questions(){
+
+}
+
+function create_questions(){
+    
+}
+
+function create_admin(){
+    ob_start();
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
+    $content_for_views = ob_get_clean();
+
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
+}
+
+
 
 function game(){
     //BUFFER pour stocker un flux temporairement

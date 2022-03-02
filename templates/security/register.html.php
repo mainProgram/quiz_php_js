@@ -23,7 +23,12 @@
     <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
         <input type="hidden" name="controller" value="security">
         <input type="hidden" name="action" value="register">
-        <input type="hidden" name="role" value="player">
+
+        <?php if(is_connect()) : ?>
+            <input type="hidden" name="role" value="admin">
+        <?php else : ?>
+            <input type="hidden" name="role" value="player">
+        <?php endif ?>
 
         <section class="loginForm">   
             <h3>Registration Form</h3>
@@ -62,11 +67,11 @@
         </small>
         
         <div class="button">
-            <label for="file" class="file">Choose an image for your avatar profile</label>
-            <input type="file" name="file" id="file"  accept="image/*" value="<?php if(isset($_SESSION["file"])) echo $_SESSION["file"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+            <label for="avatar" class="avatar">Choose an image for your avatar profile</label>
+            <input type="file" name="avatar" id="avatar"  accept="image/*" value="<?php if(isset($_SESSION["avatar"])) echo $_SESSION["avatar"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
             <img id="output" alt="Avatar" src=""/>
         </div>
-        <small> <?php if(isset($errors["file"])) echo "<p style='color:red;'>".$errors["file"]."</p>" ?> </small>
+        <small> <?php if(isset($errors["avatar"])) echo "<p style='color:red;'>".$errors["avatar"]."</p>" ?> </small>
 
         <div class="button">
             <input type="submit" name="register" id="register" value="Sign Up">

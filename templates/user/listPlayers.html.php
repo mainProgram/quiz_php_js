@@ -1,4 +1,5 @@
 <?php if(count($data) > 0):?>
+    <h1>List of all players based on score</h1>
     <section class="list_players"> 
         <table>
             <tr>

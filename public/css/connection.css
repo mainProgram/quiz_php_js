@@ -96,19 +96,19 @@ small {
 }
 
 .container div input::-webkit-input-placeholder {
-  padding: 3%;
+  padding-left: 3%;
 }
 
 .container div input:-ms-input-placeholder {
-  padding: 3%;
+  padding-left: 3%;
 }
 
 .container div input::-ms-input-placeholder {
-  padding: 3%;
+  padding-left: 3%;
 }
 
 .container div input::placeholder {
-  padding: 3%;
+  padding-left: 3%;
 }
 
 .container div img, .container div i {
