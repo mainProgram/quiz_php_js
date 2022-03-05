@@ -25,7 +25,7 @@
         <section class="body">
             <section class="left">
                 <div class="left_head">
-                    <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="PHOTO">
+                    <img src="<?php if(isset($_SESSION[KEY_USER_CONNECT])) echo "uploads/".$_SESSION[KEY_USER_CONNECT]["avatar"]; ?>" alt="PHOTO">
                     <p>LOGIN:
                         <?php if(isset($_SESSION[KEY_USER_CONNECT])) echo $_SESSION[KEY_USER_CONNECT]["login"]; ?>
                     </p>

@@ -4,7 +4,7 @@
     unset($_SESSION[KEY_ERRORS]);
 ?>
 <div class="containerFormRegistration">
-    <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
+    <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister" enctype='multipart/form-data'>
         <input type="hidden" name="controller" value="security">
         <input type="hidden" name="action" value="register">
    

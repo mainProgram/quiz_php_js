@@ -12,7 +12,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             break;
             case "register":
                 extract($_POST);
-                register($login2, $password, $password2, $lastname, $firstname, $role, $avatar);
+                $filename = $_FILES["avatar"]["name"];
+                $tempname = $_FILES["avatar"]["tmp_name"];                 
+                register($login2, $password, $password2, $lastname, $firstname, $role, $filename, $tempname);
             break;
             default:
                 echo "ERROR 404";
@@ -92,14 +94,13 @@ function logout(){
     exit();
 }
 
-function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role, $avatar){
+function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role, $filename, $tempname){
     $errors = [];
     $tab = find_data("users");
 
     $_SESSION["login2"] = $login2;
     $_SESSION["lastname"] = $lastname;
     $_SESSION["firstname"] = $firstname;
-    $_SESSION["avatar"] = $avatar;
 
     required_fields("login2", $login2, $errors);
     required_fields("password", $password, $errors);
@@ -125,6 +126,12 @@ function register(string $login2, string $password, string $password2, string $l
     if(!isset($errors["password2"]))
         are_passwords_the_same("incorrectPassword", $password, $password2, $errors);
 
+     
+    $folder = "uploads/".$filename;
+    // Now let's move the uploaded image into the folder: uploads
+    if($filename != "")
+        move_uploaded_file($tempname, $folder);
+
     if(count($errors) == 0){
         $newRegistration = array(
             "lastName"=> strtoupper($lastname),
@@ -132,7 +139,7 @@ function register(string $login2, string $password, string $password2, string $l
             "login"=> $login2,
             "password"=> $password,
             "role"=> $role,
-            "avatar"=> $avatar,
+            "avatar"=> $filename,
             "score"=> 0 
         );
         if(save_data("users", $newRegistration)){
