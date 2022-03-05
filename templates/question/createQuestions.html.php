@@ -14,22 +14,25 @@
         <div class="question">
             <label for="type_of_answer">Type of the answer</label>
             <select name="type_of_answer"  id="type_of_answer">
-                <option value="null" selected disabled>Choose a type</option>
-                <option value="one">One answer possible</option>
                 <option value="many">Many answers possible</option>
+                <option value="one">One answer possible</option>
                 <option value="input">Input</option>
             </select>
         </div>
+        <img src="img/ic-ajout-réponse.png" alt="Add" id="addRadio" hidden>
+        <img src="img/ic-ajout-réponse.png" alt="Add" id="addCheckbox">
         <div class="answers" id="answers">
             <div class="question">
-                <label for="answer1">Answer1</label>
-                <input type="text" name="answer1" id="answer1">
+                <label for="answer1">Answer</label>
+                <input type="text" name="answer1" class="answer">
                 <input type="checkbox" name="answer1checkbox" id="answer1checkbox">
-                <img src="img/ic-ajout-réponse.png" alt="Add">
-                <img src="img/ic-supprimer.png" alt="Delete">
+                <img src="img/ic-supprimer.png" alt="Delete" id="delete">
             </div>  
         </div>
          
         <input type="submit" value="Save" name="save_question" disabled>
     </form>
 </div>
+
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."createQuestions.js"?>"></script>

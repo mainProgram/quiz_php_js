@@ -74,9 +74,11 @@ function create_player(){
 function game(){
     //BUFFER pour stocker un flux temporairement
     ob_start();
-
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."game.html.php");
+        echo "<h1 style='text-align:center;'>WELCOME DEAR PLAYER !</h1>";
+        echo '<div class="game">';
+            echo '<a href='.WEB_ROOT.'?controller=security&action=logout>Log Out</a>';
+        echo '</div>';
     $content_for_views = ob_get_clean();
 
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
+    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");
 }

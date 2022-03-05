@@ -4,7 +4,16 @@
 //TRAITEMENTS DES REQUETES POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["action"])){
-
+        switch($_POST["action"]){
+            case "create":
+                extract($_POST);
+                $tab_answers = [];
+                save_question($question, $type_of_answer, $number_of_points, $tab_answers);
+            break;
+            default:
+                echo "ERROR 404";
+            break;
+        }
     }
 }
 
@@ -21,6 +30,9 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             break;           
             case "create_questions":
                 create_questions();
+            break;
+            case "create":
+                
             break;
             default:
                 echo "ERROR 404";

@@ -561,7 +561,8 @@ i {
   padding: 0.5% 2%;
 }
 
-.containerCreateQuestions .question input[type="checkbox"] {
+.containerCreateQuestions .question input[type="checkbox"],
+.containerCreateQuestions .question input[type="radio"] {
   width: 22px;
   height: 22px;
 }
@@ -571,13 +572,19 @@ i {
   cursor: pointer;
 }
 
-.containerCreateQuestions .question #answer1 {
-  margin-left: 14%;
+.containerCreateQuestions .question .answer {
+  margin-left: 12%;
+  margin-bottom: 1%;
   background-color: #f0eef1;
 }
 
 .containerCreateQuestions .question label {
   color: gray;
+}
+
+.containerCreateQuestions img[alt="Add"] {
+  margin-left: 89%;
+  cursor: pointer;
 }
 
 .list_questions {
@@ -690,5 +697,22 @@ i {
 
 .success {
   border: 2px solid green !important;
+}
+
+.game a {
+  text-decoration: none;
+  text-align: center;
+  margin-left: 5%;
+  padding: 0.5rem 0.5rem;
+  background-color: #59d9e2;
+  border: none;
+  color: white;
+  width: 10%;
+  font-size: 1.2rem;
+}
+
+.game a:hover {
+  background-color: #f0eef1;
+  color: #51bfd0;
 }
 /*# sourceMappingURL=home.css.map */

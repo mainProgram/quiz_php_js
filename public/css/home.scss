@@ -436,7 +436,8 @@ i {
         textarea {
             padding: 0.5% 2%;
         }
-        input[type="checkbox"] {
+        input[type="checkbox"],
+        input[type="radio"] {
             width: 22px;
             height: 22px;
         }
@@ -444,13 +445,18 @@ i {
             width: 20px;
             cursor: pointer;
         }
-        #answer1 {
-            margin-left: 14%;
+        .answer {
+            margin-left: 12%;
+            margin-bottom: 1%;
             background-color: $gris;
         }
         label {
             color: gray;
         }
+    }
+    img[alt="Add"] {
+        margin-left: 89%;
+        cursor: pointer;
     }
     // .answers {}
 }
@@ -546,4 +552,22 @@ i {
 
 .success {
     border: 2px solid green!important;
+}
+
+.game {
+    a {
+        text-decoration: none;
+        text-align: center;
+        margin-left: 5%;
+        padding: 0.5rem 0.5rem;
+        background-color: rgb(89, 217, 226);
+        border: none;
+        color: white;
+        width: 10%;
+        font-size: 1.2rem;
+        &:hover {
+            background-color: $gris;
+            color: $bleu;
+        }
+    }
 }
