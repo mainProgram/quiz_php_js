@@ -18,6 +18,8 @@
             <h3>Sign Up</h3>
             <?php if(is_admin()) : ?>
                 <p>Create an admin</p>
+            <?php else : ?>
+                <p>To test your general knowledge</p>
             <?php endif ?>
         </section>
         
@@ -40,7 +42,7 @@
        <small><?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?></small>
    
        <div id="password">
-           <label for="password">Password</label>
+           <label for="password">Password [At least 6 characters, a number and a letter]</label>
            <input type="password" name="password">
        </div>
        <small><?php if(isset($errors["password"])) echo "<p style='color:red;'>".$errors["password"]."</p>" ?></small>
@@ -56,27 +58,30 @@
             elseif(isset($errors["password2"])) 
                 echo "<p style='color:red;'>".$errors["password2"]."</p>" ;
         ?> 
-       </small>
+        </small>
        
-       <div class="button">
+        <div class="button">
            <img id="output" alt="Avatar" src=""/>
            <input type="file" name="avatar" id="avatar"  accept="image/*" value="<?php if(isset($_SESSION["avatar"])) echo $_SESSION["avatar"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
            <label for="avatar" class="avatar">Choose a file</label>
-       </div>
-       <small> <?php if(isset($errors["avatar"])) echo "<p style='color:red;'>".$errors["avatar"]."</p>" ?></small>
+        </div>
+        <small> <?php if(isset($errors["avatar"])) echo "<p style='color:red;'>".$errors["avatar"]."</p>" ?></small>
    
-       <div class="button">
+        <div class="button">
            <input type="submit" name="register" id="register" value="Create account" disabled>
-       </div>
+        </div>
+        
         <?php if(isset($_SESSION["created_account"])) echo "<h2>".$_SESSION['created_account']."</h2>" ?>
         <?php unset($_SESSION['created_account']); ?>
+
+        <?php if(!is_admin()) : ?>
+            <a href="<?=WEB_ROOT."/index.php"?>">Have an account? Sign in</a>
+        <?php endif ?>
     </form>
 
-    <?php if(is_admin()) : ?>
-        <div class="the_avatar">
-            <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar">
-        </div>
-    <?php endif ?>
+    <div class="the_avatar">
+        <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar">
+    </div>
 </div>
 <script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>
 <script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."register.js"?>"></script>

@@ -554,6 +554,30 @@ i {
     border: 2px solid green!important;
 }
 
+.player {
+    background-color: white;
+    width: 60%;
+    margin: auto;
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: gray;
+        margin-left: 32%;
+    }
+    input[type="submit"] {
+        margin-bottom: 2%;
+    }
+    form {
+        margin-left: 5%;
+        div {
+            margin-bottom: 1%;
+        }
+        input {
+            padding: 0.8em;
+        }
+    }
+}
+
 .game {
     a {
         text-decoration: none;

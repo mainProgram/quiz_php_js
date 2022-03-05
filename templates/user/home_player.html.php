@@ -17,7 +17,7 @@
         <img src="img/logo-QuizzSA.png" alt="">
         <h1>Le plaisir de jouer</h1>
     </header>
-    <section class="container">
+    <section class="container player">
         <?php echo $content_for_views ?>
     </section>
 </body>

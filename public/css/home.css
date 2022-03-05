@@ -699,6 +699,35 @@ i {
   border: 2px solid green !important;
 }
 
+.player {
+  background-color: white;
+  width: 60%;
+  margin: auto;
+}
+
+.player a {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+  margin-left: 32%;
+}
+
+.player input[type="submit"] {
+  margin-bottom: 2%;
+}
+
+.player form {
+  margin-left: 5%;
+}
+
+.player form div {
+  margin-bottom: 1%;
+}
+
+.player form input {
+  padding: 0.8em;
+}
+
 .game a {
   text-decoration: none;
   text-align: center;

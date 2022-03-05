@@ -47,7 +47,7 @@
 
         <div class="button">
             <input type="submit" name="connect" id="connect" value="Log In">
-            <a href="<?=WEB_ROOT."/index.php?controller=user&action=create_player"?>">Wanna play? Sign up</a>
+            <a class="signIn" href="<?=WEB_ROOT."/index.php?controller=user&action=create_player"?>">Wanna play? Sign up</a>
         </div>
     </form>  
 </section>
