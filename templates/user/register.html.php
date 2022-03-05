@@ -21,33 +21,33 @@
             <?php endif ?>
         </section>
         
-        <div>
+        <div id="firstname">
            <label for="firstname">First Name</label>
-           <input type="text" id="firstname" name="firstname" value="<?php if(isset($_SESSION["firstname"])) echo $_SESSION["firstname"];?>">
+           <input type="text" name="firstname" value="<?php if(isset($_SESSION["firstname"])) echo $_SESSION["firstname"];?>">
         </div>
         <small><?php if(isset($errors["firstname"])) echo "<p style='color:red;'>".$errors["firstname"]."</p>" ?></small>
    
-       <div>
+       <div id="lastname" >
            <label for="lastname">Last Name</label>
-           <input type="text" id="lastname" name="lastname" value="<?php if(isset($_SESSION["lastname"])) echo $_SESSION["lastname"];?>">
+           <input type="text" name="lastname" value="<?php if(isset($_SESSION["lastname"])) echo $_SESSION["lastname"];?>">
        </div>
        <small><?php if(isset($errors["lastname"])) echo "<p style='color:red;'>".$errors["lastname"]."</p>" ?></small>
    
-       <div>
-        <label for="Login">Login</label>
-           <input type="text" id="login2" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
+       <div id="login2">
+            <label for="Login">Login</label>
+            <input type="text" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
        </div>
        <small><?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?></small>
    
-       <div>
+       <div id="password">
            <label for="password">Password</label>
-           <input type="password" name="password" id="password">
+           <input type="password" name="password">
        </div>
        <small><?php if(isset($errors["password"])) echo "<p style='color:red;'>".$errors["password"]."</p>" ?></small>
    
-       <div>
+       <div id="password2">
             <label for="password">Confirm Password</label>
-           <input type="password" name="password2" id="password2">
+            <input type="password" name="password2" >
        </div>
        <small>
         <?php 
@@ -66,7 +66,7 @@
        <small> <?php if(isset($errors["avatar"])) echo "<p style='color:red;'>".$errors["avatar"]."</p>" ?></small>
    
        <div class="button">
-           <input type="submit" name="register" id="register" value="Create account">
+           <input type="submit" name="register" id="register" value="Create account" disabled>
        </div>
         <?php if(isset($_SESSION["created_account"])) echo "<h2>".$_SESSION['created_account']."</h2>" ?>
         <?php unset($_SESSION['created_account']); ?>
@@ -78,3 +78,5 @@
         </div>
     <?php endif ?>
 </div>
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."register.js"?>"></script>

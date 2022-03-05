@@ -13,7 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
         // if(!is_connect()){
         //     header("Location:".WEB_ROOT);
-        //     exit();
+        //     exit(); 
         // }
         switch($_REQUEST["action"]){
             case "home":
@@ -25,17 +25,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             case "list_players":
                 list_players();
             break;
-            case "list_questions":
-                list_questions();
-            break;
             case "create_admin":
                 create_admin();
             break;
             case "create_player":
                 create_player();
-            break;
-            case "create_questions":
-                create_questions();
             break;
             default:
                 echo "ERROR 404";
@@ -58,22 +52,6 @@ function list_players(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
 
-function list_questions(){
-    ob_start();
-        $questions = find_data("questions");
-        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."listeQuestions.html.php");
-    $content_for_views = ob_get_clean();
-
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
-}
-
-function create_questions(){
-    ob_start();
-        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."createQuestions.html.php");
-    $content_for_views = ob_get_clean();
-
-    require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
-}
 
 function create_admin(){
     ob_start();

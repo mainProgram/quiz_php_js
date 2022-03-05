@@ -48,3 +48,4 @@ function is_name_valid(string $key, string $name, array &$errors, string $messag
     if(strlen($name) < 2 || !preg_match("/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u", $name))      
         $errors[$key] = $message; 
 } 
+

@@ -105,7 +105,8 @@ i {
   width: 100%;
 }
 
-.left, .right {
+.left,
+.right {
   margin-top: 3%;
   width: 55%;
   background-color: white;
@@ -258,6 +259,39 @@ i {
   color: #51bfd0;
 }
 
+.list_players .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.list_players nav {
+  margin-top: 5%;
+}
+
+.list_players nav a:hover {
+  background-color: #59d9e2;
+  color: white;
+}
+
+.list_players nav ul {
+  list-style-type: none;
+}
+
+.list_players nav li {
+  margin-right: 2%;
+}
+
+.list_players nav .active a {
+  background-color: white;
+  color: #51bfd0;
+}
+
+.list_players nav .disabled a {
+  background-color: #aaa5a5;
+  cursor: not-allowed;
+}
+
 .containerFormRegistration {
   height: 100%;
   display: -webkit-box;
@@ -315,7 +349,8 @@ i {
   height: 8%;
 }
 
-.containerFormRegistration form .loginForm h3, .containerFormRegistration form .loginForm p {
+.containerFormRegistration form .loginForm h3,
+.containerFormRegistration form .loginForm p {
   margin-left: 5%;
 }
 
@@ -330,7 +365,7 @@ i {
 .containerFormRegistration form input {
   padding: 0.4rem;
   border-radius: 8px;
-  border: none;
+  border: 1px solid transparent;
   width: 100%;
   outline: none;
   font-size: 20px;
@@ -399,6 +434,13 @@ i {
   cursor: pointer;
 }
 
+.containerFormRegistration form .button input[type="submit"]:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+  border: none;
+  color: white;
+}
+
 .containerFormRegistration form .button a {
   margin-left: 5%;
   text-decoration: none;
@@ -464,6 +506,7 @@ i {
   outline: none;
   width: 12%;
   margin-left: 86%;
+  cursor: pointer;
 }
 
 .containerCreateQuestions input[type="submit"]:hover {
@@ -472,7 +515,16 @@ i {
   background-color: transparent;
 }
 
-.containerCreateQuestions textarea, .containerCreateQuestions #number_of_points, .containerCreateQuestions #type_of_answer {
+.containerCreateQuestions input[type="submit"]:disabled {
+  background-color: gray;
+  border: none;
+  color: white;
+  cursor: not-allowed;
+}
+
+.containerCreateQuestions textarea,
+.containerCreateQuestions #number_of_points,
+.containerCreateQuestions #type_of_answer {
   margin-right: 15%;
   resize: none;
   background-color: #f0eef1;
@@ -493,7 +545,9 @@ i {
   height: 13%;
 }
 
-.containerCreateQuestions .question input, .containerCreateQuestions .question select, .containerCreateQuestions .question textarea {
+.containerCreateQuestions .question input,
+.containerCreateQuestions .question select,
+.containerCreateQuestions .question textarea {
   padding: 1em;
   border: none;
   border-right: 1px solid #51bfd0;
@@ -514,6 +568,7 @@ i {
 
 .containerCreateQuestions .question img {
   width: 20px;
+  cursor: pointer;
 }
 
 .containerCreateQuestions .question #answer1 {
@@ -541,14 +596,37 @@ i {
           justify-content: space-between;
 }
 
+.list_questions .checkbox {
+  border: 2px solid #51bfd0;
+  margin-right: 1%;
+}
+
+.list_questions .radio {
+  border-radius: 50%;
+  border: 2px solid #51bfd0;
+  margin-right: 1%;
+}
+
+.list_questions .input {
+  width: 30%;
+  border-radius: 5px;
+  height: 30px;
+  border: 1px solid gray;
+  text-align: center;
+  font-size: 15px;
+  color: black;
+}
+
 .list_questions li {
   color: gray;
+  margin-bottom: 2%;
   font-weight: bold;
   font-size: 1.3rem;
 }
 
 .list_questions ul {
   font-size: 1rem;
+  margin-bottom: 0.8%;
   color: black;
 }
 
@@ -571,5 +649,46 @@ i {
 .list_questions a:hover {
   background-color: #f0eef1;
   color: #51bfd0;
+}
+
+.list_questions .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.list_questions nav {
+  margin-top: 5%;
+}
+
+.list_questions nav a:hover {
+  background-color: #59d9e2;
+  color: white;
+}
+
+.list_questions nav ul {
+  list-style-type: none;
+}
+
+.list_questions nav li {
+  margin-right: 2%;
+}
+
+.list_questions nav .active a {
+  background-color: white;
+  color: #51bfd0;
+}
+
+.list_questions nav .disabled a {
+  background-color: #aaa5a5;
+  cursor: not-allowed;
+}
+
+.error {
+  border: 2px solid red !important;
+}
+
+.success {
+  border: 2px solid green !important;
 }
 /*# sourceMappingURL=home.css.map */

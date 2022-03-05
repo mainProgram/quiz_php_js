@@ -26,11 +26,13 @@
             <section class="left">
                 <div class="left_head">
                     <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="PHOTO">
-                    <p>LOGIN: </p>
+                    <p>LOGIN:
+                        <?php if(isset($_SESSION[KEY_USER_CONNECT])) echo $_SESSION[KEY_USER_CONNECT]["login"]; ?>
+                    </p>
                 </div>
                 <div class="left_body">
                     <div class="setting">
-                        <a href="<?=WEB_ROOT."?controller=user&action=list_questions"?>">
+                        <a href="<?=WEB_ROOT."?controller=question&action=list_questions"?>">
                             <small>List of the questions</small>
                             <img src="img/ic-liste.png" alt="list">
                         </a>
@@ -48,7 +50,7 @@
                         </a>
                     </div>
                     <div class="setting">
-                        <a href="<?=WEB_ROOT."?controller=user&action=create_questions"?>">
+                        <a href="<?=WEB_ROOT."?controller=question&action=create_questions"?>">
                             <small>Create a question</small>
                             <img src="img/ic-ajout.png" alt="plus">
                         </a>
@@ -63,5 +65,5 @@
             </section>
         </section>
     </section>
+    <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
 
-<?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>

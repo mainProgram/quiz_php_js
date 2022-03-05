@@ -20,15 +20,16 @@
                 <option value="input">Input</option>
             </select>
         </div>
-        <div class="question">
-            <label for="answer1">Answer1</label>
-            <input type="text" name="answer1" id="answer1">
-            <input type="checkbox" name="answer1checkbox" id="answer1checkbox">
-            <img src="img/ic-ajout-réponse.png" alt="Add">
-            <img src="img/ic-supprimer.png" alt="Delete">
+        <div class="answers" id="answers">
+            <div class="question">
+                <label for="answer1">Answer1</label>
+                <input type="text" name="answer1" id="answer1">
+                <input type="checkbox" name="answer1checkbox" id="answer1checkbox">
+                <img src="img/ic-ajout-réponse.png" alt="Add">
+                <img src="img/ic-supprimer.png" alt="Delete">
+            </div>  
         </div>
-        
-        
-        <input type="submit" value="Save">
+         
+        <input type="submit" value="Save" name="save_question" disabled>
     </form>
 </div>

@@ -17,3 +17,17 @@ function get_all_players(string $role):array{
     return $result;
 }
 
+function get_numberOfPlayers(){
+    return count(get_all_players("player"));
+}
+
+function get_playerParPage($pageCourante, $pas){
+    $all_users = get_all_players("player");
+    $p = ($pageCourante * $pas) - $pas + 1;
+
+    for ($i=$p; $i <= ($pas*$pageCourante); $i++) { 
+        if(isset($all_users[$i-1]))
+            $datas[] = $all_users[$i-1] ;
+    }
+    return $datas;
+}

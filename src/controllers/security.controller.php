@@ -85,7 +85,7 @@ function connection(string $login, string $password){
 }
 
 function logout(){
-    $_SESSION[KEY_USER_CONNECT] = array();
+    // $_SESSION[KEY_USER_CONNECT] = array();
     unset($_SESSION[KEY_USER_CONNECT]);
     session_destroy();
     header("Location:".WEB_ROOT);

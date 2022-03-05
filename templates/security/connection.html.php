@@ -11,9 +11,10 @@
 </head>
 <?php 
     // require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."header.html.php";
-    if(isset($_SESSION[KEY_ERRORS]))
+    if(isset($_SESSION[KEY_ERRORS])){
         $errors = $_SESSION[KEY_ERRORS];
-    unset($_SESSION[KEY_ERRORS]);
+        unset($_SESSION[KEY_ERRORS]);
+    }
 ?>
 
 <header>
