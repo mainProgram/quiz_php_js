@@ -13,7 +13,7 @@ function showSuccess(data) {
 function isFieldEmpty(array) {
     var bool = true;
     for (let index = 0; index < array.length; index++)
-        if (array[index].firstElementChild.value.trim() == "") { //cilble les input qui sont dans le div
+        if (array[index].firstElementChild.value.trim() == "") { //cible les input qui sont dans le div
             showError(array[index], "Field is required !");
             bool = false;
         } else

@@ -11,10 +11,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //TRAITEMENTS DES REQUETES GET
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
-        // if(!is_connect()){
-        //     header("Location:".WEB_ROOT);
-        //     exit(); 
-        // }
+         if(!is_connect()){
+             header("Location:".WEB_ROOT);
+             exit(); 
+         }
         switch($_REQUEST["action"]){
             case "home":
                 if(is_admin())
