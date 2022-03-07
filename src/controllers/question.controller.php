@@ -7,8 +7,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         switch($_POST["action"]){
             case "create":
                 extract($_POST);
-                $tab_answers = [];
-                save_question($question, $type_of_answer, $number_of_points, $tab_answers);
+                // var_dump($_POST);die();
+                if($type_of_answer == "input"){
+                    $tab_answers = [$answer1];
+                    $correct = $answer1;
+                    save_question($question, $type_of_answer, $number_of_points, $tab_answers, $correct);
+                }
+                else 
+                    echo "hi";
             break;
             default:
                 echo "ERROR 404";
@@ -61,3 +67,20 @@ function create_questions(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
     
+function save_question(string $question,string $type, string $score, array $answers, $correct){
+    $errors = [];
+
+    required_fields("question", $question, $errors);
+    required_fields("score", $score, $errors);
+    for ($i=0; $i < count($answers); $i++) { 
+        required_fields("answers", $answers[$i], $errors);
+    }
+    required_fields("correct", $correct, $errors);
+
+    if(count($errors) == 0){
+        echo "No error";
+    }
+    else{
+        echo "errors";
+    }
+}

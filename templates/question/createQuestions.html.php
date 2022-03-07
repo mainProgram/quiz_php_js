@@ -3,6 +3,7 @@
     <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
         <input type="hidden" name="controller" value="question">
         <input type="hidden" name="action" value="create">   
+        <input type="hidden" name="correct" value="">   
         <div class="question">
             <label for="question">Question</label>
             <textarea name="question" cols="70" rows="4" id="question"></textarea>

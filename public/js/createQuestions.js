@@ -1,3 +1,4 @@
+const formRegister = document.getElementById("formRegister");
 const addRadio = document.getElementById("addRadio");
 const addCheckbox = document.getElementById("addCheckbox");
 const remove = document.getElementById("delete");
@@ -9,6 +10,7 @@ const number_of_points = document.getElementById("number_of_points");
 const array = [number_of_points, question]
     // ----------------------------------EVENTS
 type_of_answer.addEventListener("change", () => {
+    save_question.setAttribute("disabled", "disabled")
     if (type_of_answer.value == "one") {
         addRadio.removeAttribute("hidden")
         addCheckbox.setAttribute("hidden", "hidden")
@@ -35,6 +37,7 @@ type_of_answer.addEventListener("change", () => {
 
         input = document.createElement("input");
 
+        input.setAttribute("name", "answer1");
         input.setAttribute("class", "answer");
         input.classList.add("input");
 
@@ -47,9 +50,18 @@ type_of_answer.addEventListener("change", () => {
         addRadio.setAttribute("hidden", "hidden")
     }
     var allInputs = document.querySelectorAll(".input");
-
     for (let index = 0; index < allInputs.length; index++) {
         allInputs[index].addEventListener("input", () => { verif() })
+    }
+
+    var allCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox']"))
+    for (let index = 0; index < allCheckboxes.length; index++) {
+        allCheckboxes[index].addEventListener("change", () => { verif() })
+    }
+
+    var allRadios = Array.from(document.querySelectorAll("input[type='radio']"))
+    for (let index = 0; index < allRadios.length; index++) {
+        allRadios[index].addEventListener("change", () => { verif() })
     }
 })
 
@@ -92,9 +104,19 @@ addCheckbox.addEventListener("click", () => {
 
         save_question.setAttribute("disabled", "disabled")
 
-        var allInputs = document.querySelectorAll(".input");
+        var allInputs = formRegister.querySelectorAll(".input");
         for (let index = 0; index < allInputs.length; index++) {
             allInputs[index].addEventListener("input", () => { verif() })
+        }
+
+        var allCheckboxes = Array.from(formRegister.querySelectorAll("input[type='checkbox']"))
+        for (let index = 0; index < allCheckboxes.length; index++) {
+            allCheckboxes[index].addEventListener("change", () => { verif() })
+        }
+
+        var allImages = formRegister.getElementsByTagName("img")
+        for (let index = 0; index < allImages.length; index++) {
+            allImages[index].addEventListener("mouseover", () => { verif() })
         }
     }
 });
@@ -102,7 +124,7 @@ addCheckbox.addEventListener("click", () => {
 let j = 1;
 addRadio.addEventListener("click", () => {
     j++;
-    allAnswers = document.getElementsByClassName("answer");
+    allAnswers = formRegister.getElementsByClassName("answer");
 
     if (allAnswers.length < 4) {
 
@@ -139,25 +161,45 @@ addRadio.addEventListener("click", () => {
         for (let index = 0; index < allInputs.length; index++) {
             allInputs[index].addEventListener("input", () => { verif() })
         }
+
+        var allRadios = Array.from(document.querySelectorAll("input[type='radio']"))
+        for (let index = 0; index < allRadios.length; index++) {
+            allRadios[index].addEventListener("change", () => { verif() })
+        }
+
+        var allImages = formRegister.getElementsByTagName("img")
+        for (let index = 0; index < allImages.length; index++) {
+            allImages[index].addEventListener("mouseover", () => { verif() })
+        }
     }
 });
+
+save_question.addEventListener("mouseover", () => { verif() })
 
 question.addEventListener("input", () => { verif() })
 
 number_of_points.addEventListener("input", () => { verif() })
 
 var allInputs = document.querySelectorAll(".input");
-
 for (let index = 0; index < allInputs.length; index++) {
     allInputs[index].addEventListener("input", () => { verif() })
 }
 
+var allCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox']"))
+for (let index = 0; index < allCheckboxes.length; index++) {
+    allCheckboxes[index].addEventListener("change", () => { verif() })
+}
 
+var allImages = formRegister.getElementsByTagName("img")
+for (let index = 0; index < allImages.length; index++) {
+    allImages[index].addEventListener("mouseover", () => { verif() })
+}
 //--------------------------------------------------------FUNCTIONS
 function removeInput(id) {
     inputToDelete = document.getElementById(id);
     inputToDelete.parentElement.style.opacity = "0.4";
     setTimeout("inputToDelete.parentElement.remove()", 300);
+    verif()
 }
 
 function isFieldEmpty3(array) {
@@ -180,10 +222,43 @@ function showError3(data) {
 }
 
 function verif() {
-    let allInputs = document.querySelectorAll(".input");
-    let results = isFieldEmpty3(array) + isFieldEmpty3(allInputs);
-    if (results == 2) {
-        save_question.removeAttribute("disabled")
-    } else
-        save_question.setAttribute("disabled", "disabled")
+
+    let allInputs = formRegister.querySelectorAll(".input");
+    let allCheckboxes = Array.from(formRegister.querySelectorAll("input[type='checkbox']"))
+    let allRadios = Array.from(formRegister.querySelectorAll("input[type='radio']"))
+
+    if (allCheckboxes.length != 0) {
+        console.log("1")
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allCheckboxes);
+        if (results == 3) {
+            save_question.removeAttribute("disabled")
+        } else
+            save_question.setAttribute("disabled", "disabled")
+    } else if (allRadios.length != 0) {
+        console.log("2")
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allRadios);
+        if (results == 3) {
+            save_question.removeAttribute("disabled")
+        } else
+            save_question.setAttribute("disabled", "disabled")
+    } else {
+        console.log("3")
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs)
+        if (results == 2) {
+            save_question.removeAttribute("disabled")
+        } else
+            save_question.setAttribute("disabled", "disabled")
+    }
+}
+
+
+function checked(element) {
+    return element.checked
+}
+
+function isOneAtLeastChecked(array) {
+    newArray = array.filter(checked)
+    if (newArray.length == 0)
+        return false
+    return true
 }

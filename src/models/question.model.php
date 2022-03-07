@@ -1,8 +1,6 @@
 <?php
 
-    function save_question(string $question,string $type, string $score, array $answers){
-
-    }
+    
     function get_playerParPage($pageCourante, $pas){
         $all_users = get_all_players("player");
         $p = ($pageCourante * $pas) - $pas + 1;
