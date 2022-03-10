@@ -13,7 +13,7 @@
                 require_once PATH_SRC."controllers/question.controller.php";
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }else{

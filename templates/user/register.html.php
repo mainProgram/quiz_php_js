@@ -61,7 +61,7 @@
         </small>
        
         <div class="button">
-           <img id="output" alt="Avatar" src=""/>
+           <!-- <img alt="Avatar" src="" /> -->
            <input type="file" name="avatar" id="avatar"  accept="image/*" value="<?php if(isset($_SESSION["avatar"])) echo $_SESSION["avatar"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
            <label for="avatar" class="avatar">Choose a file</label>
         </div>
@@ -74,13 +74,16 @@
         <?php if(isset($_SESSION["created_account"])) echo "<h2>".$_SESSION['created_account']."</h2>" ?>
         <?php unset($_SESSION['created_account']); ?>
 
+        <?php if(isset($_SESSION["not_created_account"])) echo "<h2 style='color:red;>".$_SESSION['created_account']."</h2>" ?>
+        <?php unset($_SESSION['not_created_account']); ?>
+
         <?php if(!is_admin()) : ?>
             <a href="<?=WEB_ROOT."/index.php"?>">Have an account? Sign in</a>
         <?php endif ?>
     </form>
 
     <div class="the_avatar">
-        <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar">
+        <label for="avatar"> <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar" id="output"></label>
     </div>
 </div>
 <script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>

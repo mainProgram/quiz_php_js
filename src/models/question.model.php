@@ -1,21 +1,12 @@
 <?php
 
-    
-    function get_playerParPage($pageCourante, $pas){
-        $all_users = get_all_players("player");
+    function get_QuestionsParPage($pageCourante, $pas){
+        $all_questions = find_data("questions");
         $p = ($pageCourante * $pas) - $pas + 1;
     
         for ($i=$p; $i <= ($pas*$pageCourante); $i++) { 
-            if(isset($all_users[$i-1]))
-                $datas[] = $all_users[$i-1] ;
+            if(isset($all_questions[$i-1]))
+                $datas[] = $all_questions[$i-1] ;
         }
         return $datas;
-    }
-    function get_all_players(string $role):array{
-        $all_users = find_data("users");
-        $result = array();
-        foreach($all_users as $user)
-            if($user["role"] == $role)
-                $result[] = $user;
-        return $result;
     }

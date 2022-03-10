@@ -17,7 +17,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 register($login2, $password, $password2, $lastname, $firstname, $role, $filename, $tempname);
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }
@@ -28,7 +28,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
         switch($_REQUEST["action"]){
             case "connection":
-                header("Location:".PATH_VIEWS."security".DIRECTORY_SEPARATOR."connection.html.php");
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."connection.html.php";
             break;
             case "logout":
                 logout();
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 }
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }
@@ -127,7 +127,7 @@ function register(string $login2, string $password, string $password2, string $l
         are_passwords_the_same("incorrectPassword", $password, $password2, $errors);
 
      
-    $folder = "uploads/".$filename;
+    $folder = "uploads".DIRECTORY_SEPARATOR.$filename;
     // Now let's move the uploaded image into the folder: uploads
     if($filename != "")
         move_uploaded_file($tempname, $folder);
@@ -158,7 +158,8 @@ function register(string $login2, string $password, string $password2, string $l
                     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");     
                 }  
         }else{
-            header("Location:".WEB_ROOT."?controller=security&action=register&pasbon=pasbon");
+            $_SESSION["not_created_account"] =  "ERROR !";
+            header("Location:".WEB_ROOT."?controller=security&action=register");
         }
     }
     else{

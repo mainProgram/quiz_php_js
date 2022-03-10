@@ -49,3 +49,7 @@ function is_name_valid(string $key, string $name, array &$errors, string $messag
         $errors[$key] = $message; 
 } 
 
+function is_length_correct(string $key, string $score, array &$errors, string $message="Score value isn't correct !"){
+    if($score <= 0)
+        $errors[$key] = $message;
+}

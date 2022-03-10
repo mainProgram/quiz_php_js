@@ -9,12 +9,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 extract($_POST);
                 // var_dump($_POST);die();
                 if($type_of_answer == "input"){
-                    $tab_answers = [$answer1];
-                    $correct = $answer1;
-                    save_question($question, $type_of_answer, $number_of_points, $tab_answers, $correct);
+                    $tab_answers = [strtolower(trim($answer1))];
+                    $correct = strtolower(trim($answer1));
                 }
-                else 
-                    echo "hi";
+                else {
+                    $tab_answers = [strtolower(trim($answer1))];
+                    if(isset($answer2)) 
+                        $tab_answers[] = strtolower(trim($answer2));
+                    if(isset($answer3)) 
+                        $tab_answers[] = strtolower(trim($answer3));
+                    if(isset($answer4)) 
+                        $tab_answers[] = strtolower(trim($answer4));
+                    $correct = "";
+                }
+                save_question($question, $type_of_answer, $number_of_points, $tab_answers, $correct);
             break;
             default:
                 echo "ERROR 404";
@@ -26,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //TRAITEMENTS DES REQUETES GET
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
-        if(!is_connect()){
+        if(!is_admin()){
             header("Location:".WEB_ROOT);
             exit(); 
         }
@@ -72,15 +80,30 @@ function save_question(string $question,string $type, string $score, array $answ
 
     required_fields("question", $question, $errors);
     required_fields("score", $score, $errors);
+    if(!isset($errors["score"]))
+        if($score <= 0)
+            is_length_correct("score", $score, $errors);
     for ($i=0; $i < count($answers); $i++) { 
-        required_fields("answers", $answers[$i], $errors);
+        required_fields("answers", $answers[$i], $errors, "Fill all the inputs");
     }
-    required_fields("correct", $correct, $errors);
 
     if(count($errors) == 0){
-        echo "No error";
+        $newRegistration = array(
+            "question"=> $question,
+            "score"=> $score,
+            "type"=> $type,
+            "correct"=> $correct,
+            "answers"=> $answers
+        );
+        if(save_data("questions", $newRegistration)){
+            $_SESSION["saved_question"] =  "Question saved !";
+        }else{
+            $_SESSION["not_saved_question"] =  "Question not saved !";
+        }
+        header("Location:".WEB_ROOT."/index.php?controller=question&action=create_questions");
     }
     else{
-        echo "errors";
+        $_SESSION[KEY_ERRORS] = $errors;
+        header("Location:".WEB_ROOT."/index.php?controller=question&action=create_questions");
     }
 }

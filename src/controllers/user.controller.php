@@ -11,10 +11,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 //TRAITEMENTS DES REQUETES GET
 if($_SERVER["REQUEST_METHOD"] == "GET"){
     if(isset($_REQUEST["action"])){
-         if(!is_connect()){
-             header("Location:".WEB_ROOT);
-             exit(); 
-         }
         switch($_REQUEST["action"]){
             case "home":
                 if(is_admin())
@@ -23,16 +19,24 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                     game();
             break;
             case "list_players":
-                list_players();
+                if(is_admin())
+                    list_players();
+                else{
+                    header("Location:".WEB_ROOT);exit();
+                }
             break;
             case "create_admin":
-                create_admin();
+                if(is_admin())
+                    create_admin();
+                else{
+                    header("Location:".WEB_ROOT);exit();
+                }
             break;
             case "create_player":
                 create_player();
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }

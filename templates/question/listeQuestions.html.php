@@ -12,10 +12,10 @@
             $nbQuestions = count($questions); //nbr total d'Questions 
             $nbPages = ceil($nbQuestions / $pas); //nombre total de pages
             $premier = ($pageCourante * $pas) - $pas;
-            $Questions = get_playerParPage($pageCourante,3);
+            $Questions = get_QuestionsParPage($pageCourante,3);
         ?>
         <ol>
-            <?php foreach($questions as $q) :?>
+            <?php foreach($Questions as $q) :?>
                 <li><?= $q["question"] ?>
                     <?php if($q["type"] == "one"): ?>
                         <?php foreach($q ["answers"] as $a) :?>
@@ -37,17 +37,17 @@
             <ul class="pagination">
                 <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->
                 <li class="page-item <?= ($pageCourante == 1) ? "disabled" : "" ?>">
-                    <a href="./?controller=user&action=list_questions&page=<?= $pageCourante - 1 ?>" class="page-link">Précédent</a>
+                    <a href="./?controller=question&action=list_questions&page=<?= $pageCourante - 1 ?>" class="page-link">Précédent</a>
                 </li>
                 <?php for($page = 1; $page <= $nbPages; $page++): ?>
                     <!-- Lien vers chacune des pages (activé si on se trouve sur la page correspondante) -->
                     <li class="page-item <?= ($pageCourante == $page) ? "active" : "" ?>">
-                        <a href="./?controller=user&action=list_questions&page=<?= $page ?>" class="page-link"><?= $page ?></a>
+                        <a href="./?controller=question&action=list_questions&page=<?= $page ?>" class="page-link"><?= $page ?></a>
                     </li>
                 <?php endfor ?>
                     <!-- Lien vers la page suivante (désactivé si on se trouve sur la dernière page) -->
                     <li class="page-item <?= ($pageCourante == $nbPages) ? "disabled" : "" ?>">
-                    <a href="./?controller=user&action=list_questions&page=<?= $pageCourante + 1 ?>" class="page-link">Suivant</a>
+                    <a href="./?controller=question&action=list_questions&page=<?= $pageCourante + 1 ?>" class="page-link">Suivant</a>
                 </li>
             </ul>
         </nav>

@@ -1,17 +1,35 @@
+<?php 
+    if(isset($_SESSION[KEY_ERRORS])){
+        $errors = $_SESSION[KEY_ERRORS];
+        unset($_SESSION[KEY_ERRORS]);
+    }
+?>
 <div class="containerCreateQuestions">
     <h1>Question Configuration</h1>
     <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
         <input type="hidden" name="controller" value="question">
         <input type="hidden" name="action" value="create">   
-        <input type="hidden" name="correct" value="">   
+        <input type="hidden" name="correct" value=""> 
+
+        <?php if(isset($_SESSION["saved_question"])) echo "<h2 style='color:green;>".$_SESSION['saved_question']."</h2>" ?>
+        <?php unset($_SESSION['saved_question']); ?>
+
+        <?php if(isset($_SESSION["not_saved_question"])) echo "<h2 style='color:red;>".$_SESSION['created_account']."</h2>" ?>
+        <?php unset($_SESSION['not_saved_question']); ?>
+
+        <small><?php if(isset($errors["question"])) echo "<p>".$errors["question"]."</p>" ?></small>
         <div class="question">
             <label for="question">Question</label>
             <textarea name="question" cols="70" rows="4" id="question"></textarea>
         </div>
+
+        <small><?php if(isset($errors["score"])) echo "<p>".$errors["score"]."</p>" ?></small>
         <div class="question">
             <label for="number_of_points">Score</label>
-            <input type="number" name="number_of_points" id="number_of_points" min="1" max="100" >
+            <input type="number" name="number_of_points" id="number_of_points"  max="100" >
         </div>
+
+
         <div class="question">
             <label for="type_of_answer">Type of the answer</label>
             <select name="type_of_answer"  id="type_of_answer">
@@ -22,6 +40,8 @@
         </div>
         <img src="img/ic-ajout-réponse.png" alt="Add" id="addRadio" hidden>
         <img src="img/ic-ajout-réponse.png" alt="Add" id="addCheckbox">
+
+        <small><?php if(isset($errors["answers"])) echo "<p>".$errors["answers"]."</p>" ?></small>
         <div class="answers" id="answers">
             <div class="question">
                 <label for="answer1">Answer</label>
@@ -31,7 +51,7 @@
             </div>  
         </div>
          
-        <input type="submit" value="Save" name="save_question" id="save_question" disabled>
+         <input type="submit" value="Save" name="save_question" id="save_question" disabled> 
     </form>
 </div>
 

@@ -112,22 +112,6 @@
         "avatar": "",
         "score": 0
     }, {
-        "lastName": "SALL",
-        "firstName": "Solih",
-        "login": "fakir8@gmail.com",
-        "password": "fakir5",
-        "role": "player",
-        "avatar": "",
-        "score": 0
-    }, {
-        "lastName": "BA",
-        "firstName": "Khadijay",
-        "login": "ba@gmail.com",
-        "password": "popopo0",
-        "role": "player",
-        "avatar": null,
-        "score": 0
-    }, {
         "lastName": "BA",
         "firstName": "Khadijay",
         "login": "bakhal@gmail.com",
@@ -166,5 +150,35 @@
             "answer3": "Blue",
             "answer4": "Yellow"
         }
+    }, {
+        "question": "Quelle est la capitale du SENEGAL ?",
+        "score": "10",
+        "type": "input",
+        "correct": "dakar",
+        "answers": ["dakar"]
+    }, {
+        "question": "Parmi les chiffrements suivants, quel est celui asym\u00e9trique ?",
+        "score": "100",
+        "type": "many",
+        "correct": "",
+        "answers": ["md5", "rc4", "rsa", "aes"]
+    }, {
+        "question": "En quelle ann\u00e9e les Mercedes Benz 508D ont \u00e9taient introduites au SENEGAL ?",
+        "score": "50",
+        "type": "one",
+        "correct": "",
+        "answers": ["1982", "2000", "1974"]
+    }, {
+        "question": "Quelles sont les 3 couleurs du drapeau s\u00e9n\u00e9galais ?",
+        "score": "10",
+        "type": "one",
+        "correct": "",
+        "answers": ["vert, jaune, rouge", "bleu, blanc, rouge", "bleu, jaune, rouge"]
+    }, {
+        "question": "l",
+        "score": "3",
+        "type": "many",
+        "correct": "",
+        "answers": ["aadc"]
     }]
 }
