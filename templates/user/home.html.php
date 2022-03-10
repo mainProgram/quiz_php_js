@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <img src="img/logo-QuizzSA.png" alt="">
+        <a href="<?=WEB_ROOT."?controller=user&action=list_players"?>"><img src="img/logo-QuizzSA.png" alt=""></a>
         <h1>Le plaisir de jouer</h1>
     </header>
     <section class="container">

@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 save_question($question, $type_of_answer, $number_of_points, $tab_answers, $correct);
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 
             break;
             default:
-                echo "ERROR 404";
+                require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
         }
     }

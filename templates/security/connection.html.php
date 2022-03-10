@@ -18,7 +18,7 @@
 ?>
 
 <header>
-    <img src="img/logo-QuizzSA.png" alt="">
+    <a href="#"><img src="img/logo-QuizzSA.png" alt=""></a>
     <h1>Le plaisir de jouer</h1>
 </header>
 <section class="container">
