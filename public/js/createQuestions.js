@@ -7,8 +7,32 @@ const answers = document.getElementById("answers");
 const type_of_answer = document.getElementById("type_of_answer");
 const save_question = document.getElementById("save_question");
 const number_of_points = document.getElementById("number_of_points");
+const plus = document.getElementById("plus");
+const moins = document.getElementById("moins");
 const array = [number_of_points, question]
-    // ----------------------------------EVENTS
+// ----------------------------------EVENTS
+plus.addEventListener("click", ()=>{
+    num = Number(number_of_points.value) 
+    if(num < 1001){
+        number_of_points.value = num + 1
+        moins.removeAttribute("class")
+        if(num+1 == 1001){
+            plus.setAttribute("class", "disabled")
+        }
+    }
+});
+
+moins.addEventListener("click", ()=>{
+    num = Number(number_of_points.value)
+    if(num > 1){
+        number_of_points.value = num - 1
+        plus.removeAttribute("class")
+        if(num-1 == 1){
+            moins.setAttribute("class", "disabled")
+        }
+    }
+});
+
 type_of_answer.addEventListener("change", () => {
     save_question.setAttribute("disabled", "disabled")
     if (type_of_answer.value == "one") {
@@ -17,7 +41,7 @@ type_of_answer.addEventListener("change", () => {
         answers.innerHTML = `<div class="question">
                                 <label for="answer1">Answer</label>
                                 <input type="text" name="answer1" class="answer input">
-                                <input type="radio" name="radio" id="answer1radio">
+                                <input type="radio" name="reponse[]" id="answer1radio" value="1">
                                 <img src="img/ic-supprimer.png" alt="Delete" id="delete"  style="cursor: not-allowed;">
                             </div>  `
     } else if (type_of_answer.value == "many") {
@@ -26,7 +50,7 @@ type_of_answer.addEventListener("change", () => {
         answers.innerHTML = `<div class="question">
                                 <label for="answer1">Answer</label>
                                 <input type="text" name="answer1" class="answer input">
-                                <input type="checkbox" name="answer1checkbox" id="answer1checkbox">
+                                <input type="checkbox" name="reponse[]" id="answer1checkbox" value="1">
                                 <img src="img/ic-supprimer.png" alt="Delete" id="delete"  style="cursor: not-allowed;">
                             </div>  `
     } else {
@@ -63,9 +87,7 @@ type_of_answer.addEventListener("change", () => {
     for (let index = 0; index < allRadios.length; index++) {
         allRadios[index].addEventListener("change", () => { verif() })
     }
-})
-
-
+});
 
 let i = 1;
 addCheckbox.addEventListener("click", () => {
@@ -92,7 +114,8 @@ addCheckbox.addEventListener("click", () => {
         inputCheckbox = document.createElement("input");
         inputCheckbox.setAttribute("type", "checkbox");
         inputCheckbox.setAttribute("id", id + "checkbox");
-        inputCheckbox.setAttribute("name", id + "checkbox");
+        inputCheckbox.setAttribute("name", "reponse[]");
+        inputCheckbox.setAttribute("value", i);
 
 
         div.appendChild(label);
@@ -146,7 +169,8 @@ addRadio.addEventListener("click", () => {
         inputRadio = document.createElement("input");
         inputRadio.setAttribute("type", "radio");
         inputRadio.setAttribute("id", id + "radio");
-        inputRadio.setAttribute("name", "radio");
+        inputRadio.setAttribute("name", "reponse[]");
+        inputRadio.setAttribute("value", j);
 
         div.appendChild(label);
         div.appendChild(input);
@@ -229,28 +253,28 @@ function verif() {
 
     if (allCheckboxes.length != 0) {
         console.log("1")
-        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allCheckboxes);
-        if (results == 3) {
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allCheckboxes) + is_integer(number_of_points);
+        if (results == 4) {
             save_question.removeAttribute("disabled")
         } else
             save_question.setAttribute("disabled", "disabled")
     } else if (allRadios.length != 0) {
         console.log("2")
-        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allRadios);
-        if (results == 3) {
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + isOneAtLeastChecked(allRadios) + is_integer(number_of_points);
+        if (results == 4) {
             save_question.removeAttribute("disabled")
         } else
             save_question.setAttribute("disabled", "disabled")
     } else {
         console.log("3")
-        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs)
-        if (results == 2) {
+        results = isFieldEmpty3(array) + isFieldEmpty3(allInputs) + is_integer(number_of_points)
+        if (results == 3) {
             save_question.removeAttribute("disabled")
         } else
             save_question.setAttribute("disabled", "disabled")
     }
+    console.log(results+"result")
 }
-
 
 function checked(element) {
     return element.checked
@@ -262,3 +286,4 @@ function isOneAtLeastChecked(array) {
         return false
     return true
 }
+

@@ -14,7 +14,7 @@
             $premier = ($pageCourante * $pas) - $pas;
             $Questions = get_QuestionsParPage($pageCourante,3);
         ?>
-        <ol>
+        <ul>
             <?php foreach($Questions as $q) :?>
                 <li><?= $q["question"] ?>
                     <?php if($q["type"] == "one"): ?>
@@ -32,7 +32,7 @@
                     <?php endif ?>
                 </li>
             <?php endforeach ?>
-        </ol>
+        </ul>
         <nav>
             <ul class="pagination">
                 <!-- Lien vers la page précédente (désactivé si on se trouve sur la 1ère page) -->

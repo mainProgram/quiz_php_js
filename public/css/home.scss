@@ -236,14 +236,14 @@ i {
     h2 {
         color: green;
         text-align: center;
-        margin-top: 3%;
+        margin: 1% 0;
     }
     height: 100%;
     display: flex;
     justify-content: space-between;
     width: 100%;
     margin: auto;
-    margin-top: 2%;
+    margin-top: .5%;
     .the_avatar {
         display: flex;
         align-items: flex-start;
@@ -296,7 +296,7 @@ i {
         }
         small {
             display: flex;
-            padding: 0.7% 0;
+            padding: .7% 0;
             color: red;
             width: 90%;
             margin: auto;
@@ -317,7 +317,7 @@ i {
             input[type="submit"] {
                 box-shadow: none;
                 border: none;
-                margin-top: 1%;
+                margin-top: .5%;
                 width: 37%;
                 text-align: center;
                 margin-left: 30%;
@@ -411,11 +411,23 @@ i {
         }
     }
     textarea,
-    #number_of_points,
     #type_of_answer {
         margin-right: 15%;
         resize: none;
         background-color: $gris;
+    }
+    #number_of_points{
+        margin-left: 3%;
+        background-color: $gris;
+    }
+    span{
+        color: $bleu;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    .disabled{
+        color: gray;
+        cursor: not-allowed;
     }
     .question {
         display: flex;
@@ -561,30 +573,32 @@ i {
 }
 
 .player {
+    height: 80vh;
     background-color: white;
-    width: 60%;
+    width: 90%;
     margin: auto;
     a {
         text-decoration: none;
         font-weight: bold;
         color: gray;
-        margin-left: 32%;
+        margin-left: 37%;
     }
     input[type="submit"] {
-        margin-bottom: 2%;
+        margin-bottom: 1%;
     }
     form {
         margin-left: 5%;
         div {
-            margin-bottom: 1%;
+            margin-bottom: .5%;
         }
         input {
-            padding: 0.8em;
+            padding: .6em;
         }
     }
 }
 
 .game {
+    height: 100%;
     a {
         text-decoration: none;
         text-align: center;
@@ -600,6 +614,64 @@ i {
             color: $bleu;
         }
     }
+    .left_head {
+        justify-content: space-around;
+        height: 25%;
+        padding: .4%;
+        img {
+            padding: .2%;
+            width: 150px;
+            height: 150px;
+        }
+    }
+    .body{
+        height: 75%;
+        background-color: $gris;
+    }
+    .questions{
+        margin: auto;
+        width: 40%;
+        height: 50vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 2%;
+        h2{
+            text-align: center;
+        }
+        .question, .button{
+            height: 20%;
+        }
+        .reponses{
+            height: 60%;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+        }
+        .button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            button{
+                width: 100%;
+                background-color: black;
+                padding: 1.5rem 1.5rem;
+                color: white;
+                font-weight: bold;
+                font-size: 20px;
+                border: none;
+                &:hover{
+                    background-color: $bleu;
+                }
+                &:disabled{
+                    background-color: gray;
+                    color: gray;
+                }
+            }
+        }
+    }
+    
 }
 
 .Error404{

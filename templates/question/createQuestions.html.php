@@ -6,9 +6,9 @@
 ?>
 <div class="containerCreateQuestions">
     <h1>Question Configuration</h1>
-    <form action="<?=WEB_ROOT."/index.php"?>" method="post" id="formRegister">
+    <form action="" method="post" id="formRegister">
         <input type="hidden" name="controller" value="question">
-        <input type="hidden" name="action" value="create">   
+        <input type="hidden" name="action" value="create_questions">   
         <input type="hidden" name="correct" value=""> 
 
         <?php if(isset($_SESSION["saved_question"])) echo "<h2 style='color:green;>".$_SESSION['saved_question']."</h2>" ?>
@@ -25,8 +25,10 @@
 
         <small><?php if(isset($errors["score"])) echo "<p>".$errors["score"]."</p>" ?></small>
         <div class="question">
-            <label for="number_of_points">Score</label>
-            <input type="number" name="number_of_points" id="number_of_points"  max="100" >
+            <label for="number_of_points">Score [1-1000]</label>
+            <input type="text" name="number_of_points" id="number_of_points"  value="1" >
+            <span id="plus">+1</span>
+            <span id="moins" class="disabled">-1</span>
         </div>
 
 
@@ -46,12 +48,12 @@
             <div class="question">
                 <label for="answer1">Answer</label>
                 <input type="text" name="answer1" class="answer input">
-                <input type="checkbox" name="answer1checkbox" id="answer1checkbox">
+                <input type="checkbox" name="reponse[]" id="answer1checkbox" value="1">
                 <img src="img/ic-supprimer.png" alt="Delete" id="delete" style="cursor: not-allowed;" >
             </div>  
         </div>
          
-         <input type="submit" value="Save" name="save_question" id="save_question" disabled> 
+        <input type="submit" value="Save" name="save_question" id="save_question" disabled> 
     </form>
 </div>
 

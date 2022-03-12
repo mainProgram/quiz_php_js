@@ -21,4 +21,4 @@ require_once $rootDirectory."/config/router.php";
 // echo "<pre>";
 // var_dump($_SERVER);
 // echo "<pre>";
-
+// var_dump(explode("@","fazeyna@gmail.com"));die;

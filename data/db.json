@@ -14,7 +14,7 @@
         "password": "passer",
         "role": "player",
         "score": 0,
-        "avatar": ""
+        "avatar": "kine45_player.svg"
     }, {
         "lastName": "DIOP",
         "firstName": "Mausi",
@@ -92,7 +92,7 @@
         "firstName": "Ndongo",
         "login": "londam@gmail.com",
         "password": "ndongo9",
-        "role": "player",
+        "role": "admin",
         "avatar": "",
         "score": 0
     }, {
@@ -118,6 +118,38 @@
         "password": "lololo0",
         "role": "player",
         "avatar": "Personal data _Monochromatic.svg",
+        "score": 0
+    }, {
+        "lastName": "DIOP",
+        "firstName": "Fama Zeyna Faye",
+        "login": "faye22@gmail.com",
+        "password": "passer1",
+        "role": "player",
+        "avatar": "",
+        "score": 0
+    }, {
+        "lastName": "DIOP",
+        "firstName": "Kin\u00e9",
+        "login": "kine@gmail.com",
+        "password": "passer1",
+        "role": "player",
+        "avatar": "undraw_page_not_found_re_e9o6.svg",
+        "score": 0
+    }, {
+        "lastName": "DIOP",
+        "firstName": "Fama Zeyna Faye",
+        "login": "kine45@gmail.com",
+        "password": "passer1",
+        "role": "admin",
+        "avatar": "kine45_player.svg",
+        "score": 0
+    }, {
+        "lastName": "DIOP",
+        "firstName": "Fama Zeyna Faye",
+        "login": "faye45@gmail.com",
+        "password": "passer4",
+        "role": "admin",
+        "avatar": "faye45_admin.svg",
         "score": 0
     }],
     "questions": [{
@@ -160,25 +192,37 @@
         "question": "Parmi les chiffrements suivants, quel est celui asym\u00e9trique ?",
         "score": "100",
         "type": "many",
-        "correct": "",
+        "correct": ["rsa"],
         "answers": ["md5", "rc4", "rsa", "aes"]
     }, {
         "question": "En quelle ann\u00e9e les Mercedes Benz 508D ont \u00e9taient introduites au SENEGAL ?",
         "score": "50",
         "type": "one",
-        "correct": "",
+        "correct": ["1982"],
         "answers": ["1982", "2000", "1974"]
     }, {
         "question": "Quelles sont les 3 couleurs du drapeau s\u00e9n\u00e9galais ?",
         "score": "10",
         "type": "one",
-        "correct": "",
+        "correct": "1",
         "answers": ["vert, jaune, rouge", "bleu, blanc, rouge", "bleu, jaune, rouge"]
     }, {
-        "question": "l",
-        "score": "3",
-        "type": "many",
-        "correct": "",
-        "answers": ["aadc"]
+        "question": "Quel est le vrai nom de Fama?",
+        "score": "100",
+        "type": "one",
+        "correct": ["2"],
+        "answers": ["fama diop", "fama zeyna faye diop", "fama faye"]
+    }, {
+        "question": "la capitale de l'Allemagne ?",
+        "score": "10",
+        "type": "one",
+        "correct": ["1"],
+        "answers": ["berlin", "bonn", "bayern"]
+    }, {
+        "question": "La date de naissance de Cheikh Ahmadou BAMBA ?",
+        "score": "20",
+        "type": "one",
+        "correct": ["1"],
+        "answers": ["1927", "2000", "400", "1967"]
     }]
 }

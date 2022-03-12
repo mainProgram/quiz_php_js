@@ -12,9 +12,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             break;
             case "register":
                 extract($_POST);
-                $filename = $_FILES["avatar"]["name"];
-                $tempname = $_FILES["avatar"]["tmp_name"];                 
-                register($login2, $password, $password2, $lastname, $firstname, $role, $filename, $tempname);
+                $avatar = $_FILES;    
+                register($login2, $password, $password2, $lastname, $firstname, $role, $avatar);
             break;
             default:
                 require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
@@ -34,7 +33,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 logout();
             break;
             case "register":
-                unset($_SESSION["login"]);
+                // unset($_SESSION["login"]);
                 if(is_admin()){
                     ob_start();
                         require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
@@ -94,7 +93,7 @@ function logout(){
     exit();
 }
 
-function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role, $filename, $tempname){
+function register(string $login2, string $password, string $password2, string $lastname, string $firstname, string $role, $avatar){
     $errors = [];
     $tab = find_data("users");
 
@@ -102,12 +101,18 @@ function register(string $login2, string $password, string $password2, string $l
     $_SESSION["lastname"] = $lastname;
     $_SESSION["firstname"] = $firstname;
 
+    $filename = $avatar["avatar"]["name"];
+    if($filename != ""){
+        $tempname = $avatar["avatar"]["tmp_name"];     
+        $extension = pathinfo($avatar["avatar"]["name"], PATHINFO_EXTENSION);
+        is_extension_valid("avatar", $extension, $errors);
+    }
+
     required_fields("login2", $login2, $errors);
     required_fields("password", $password, $errors);
     required_fields("password2", $password2, $errors);
     required_fields("lastname", $lastname, $errors);
     required_fields("firstname", $firstname, $errors);
-    // required_fields("avatar", $avatar, $errors);
 
     if(!isset($errors["login2"])){
         is_mail_valid("login2", $login2, $errors);
@@ -126,23 +131,25 @@ function register(string $login2, string $password, string $password2, string $l
     if(!isset($errors["password2"]))
         are_passwords_the_same("incorrectPassword", $password, $password2, $errors);
 
-     
-    $folder = "uploads".DIRECTORY_SEPARATOR.$filename;
-    // Now let's move the uploaded image into the folder: uploads
-    if($filename != "")
-        move_uploaded_file($tempname, $folder);
-
     if(count($errors) == 0){
+        if($filename != "")
+            $new_file_name = upload($filename, $tempname, $extension, $login2, $role);
+        else
+            $new_file_name = "";
+
         $newRegistration = array(
             "lastName"=> strtoupper($lastname),
             "firstName"=> ucwords(strtolower($firstname)),
             "login"=> $login2,
             "password"=> $password,
             "role"=> $role,
-            "avatar"=> $filename,
+            "avatar"=> $new_file_name,
             "score"=> 0 
         );
         if(save_data("users", $newRegistration)){
+            unset($_SESSION["login2"]);
+            unset($_SESSION["firstname"]);
+            unset($_SESSION["lastname"]);
             ob_start();
                 $_SESSION["created_account"] =  "Account created !";
                 if(is_admin()){

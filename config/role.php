@@ -1,7 +1,4 @@
 <?php
-    define("ROLE_PLAYER", "player");
-    define("ROLE_ADMIN", "admin");
-
     function is_connect():bool{
         return isset($_SESSION[KEY_USER_CONNECT]);
     }

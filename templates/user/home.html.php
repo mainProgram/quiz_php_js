@@ -25,7 +25,13 @@
         <section class="body">
             <section class="left">
                 <div class="left_head">
-                    <img src="<?php if(isset($_SESSION[KEY_USER_CONNECT])) echo "uploads/".$_SESSION[KEY_USER_CONNECT]["avatar"]; ?>" alt="PHOTO">
+                    <img src=" 
+                        <?php 
+                            if(isset($_SESSION[KEY_USER_CONNECT]) && $_SESSION[KEY_USER_CONNECT]["avatar"] != "")
+                                echo "uploads".DIRECTORY_SEPARATOR.$_SESSION[KEY_USER_CONNECT]["avatar"]; 
+                            else
+                                echo "img".DIRECTORY_SEPARATOR."simone-secci-49uySSA678U-unsplash.jpg" ;
+                        ?>" alt="PHOTO">
                     <p>LOGIN:
                         <?php if(isset($_SESSION[KEY_USER_CONNECT])) echo $_SESSION[KEY_USER_CONNECT]["login"]; ?>
                     </p>
@@ -65,5 +71,5 @@
             </section>
         </section>
     </section>
-    <?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
+<?php require_once PATH_VIEWS."include".DIRECTORY_SEPARATOR."footer.html.php"; ?>
 

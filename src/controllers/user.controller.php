@@ -15,8 +15,11 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             case "home":
                 if(is_admin())
                     list_players();
-                else
+                elseif(is_player())
                     game();
+                else{
+                    header("Location:".WEB_ROOT);exit();
+                }
             break;
             case "list_players":
                 if(is_admin())
@@ -56,7 +59,6 @@ function list_players(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
 
-
 function create_admin(){
     ob_start();
         require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."register.html.php");
@@ -73,16 +75,10 @@ function create_player(){
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");
 }
 
-
-
 function game(){
     //BUFFER pour stocker un flux temporairement
     ob_start();
-        echo "<h1 style='text-align:center;'>WELCOME DEAR PLAYER !</h1>";
-        echo '<div class="game">';
-            echo '<a href='.WEB_ROOT.'?controller=security&action=logout>Log Out</a>';
-        echo '</div>';
+        require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."game.html.php");
     $content_for_views = ob_get_clean();
-
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home_player.html.php");
 }

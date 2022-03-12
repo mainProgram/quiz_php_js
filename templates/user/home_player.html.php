@@ -21,3 +21,4 @@
         <?php echo $content_for_views ?>
     </section>
 </body>
+<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>

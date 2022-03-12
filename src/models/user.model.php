@@ -31,3 +31,17 @@ function get_playerParPage($pageCourante, $pas){
     }
     return $datas;
 }
+
+
+function upload($filename, $tempname, $extension, $login, $role){
+    if($filename != ""){
+        $new_file_name = explode("@",$login)[0]."_".$role.".".$extension;
+
+        $folder = "uploads".DIRECTORY_SEPARATOR.$new_file_name;
+
+        // Now let's move the uploaded image into the folder: uploads
+        move_uploaded_file($tempname, $folder);
+
+        return $new_file_name;
+    }
+}

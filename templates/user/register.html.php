@@ -36,7 +36,7 @@
        <small><?php if(isset($errors["lastname"])) echo "<p style='color:red;'>".$errors["lastname"]."</p>" ?></small>
    
        <div id="login2">
-            <label for="Login">Login</label>
+            <label for="Login">Login [a gmail mail adress]</label>
             <input type="text" name="login2" value="<?php if(isset($_SESSION["login2"])) echo $_SESSION["login2"];?>">
        </div>
        <small><?php if(isset($errors["login2"])) echo "<p style='color:red;'>".$errors["login2"]."</p>" ?></small>
@@ -62,7 +62,7 @@
        
         <div class="button">
            <!-- <img alt="Avatar" src="" /> -->
-           <input type="file" name="avatar" id="avatar"  accept="image/*" value="<?php if(isset($_SESSION["avatar"])) echo $_SESSION["avatar"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+           <input type="file" name="avatar" id="avatar" value="<?php if(isset($_SESSION["avatar"])) echo $_SESSION["avatar"];?>" onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
            <label for="avatar" class="avatar">Choose a file</label>
         </div>
         <small> <?php if(isset($errors["avatar"])) echo "<p style='color:red;'>".$errors["avatar"]."</p>" ?></small>
@@ -83,8 +83,7 @@
     </form>
 
     <div class="the_avatar">
-        <label for="avatar"> <img src="img/nicolas-brulois-fQEj6HTfogo-unsplash.jpg" alt="Avatar" id="output"></label>
+        <label for="avatar"> <img src="img/simone-secci-49uySSA678U-unsplash.jpg" alt="Avatar" id="output"></label>
     </div>
 </div>
-<script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."functions.js"?>"></script>
 <script src="<?=WEB_PUBLIC."js".DIRECTORY_SEPARATOR."register.js"?>"></script>

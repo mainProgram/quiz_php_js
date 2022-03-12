@@ -9,6 +9,17 @@ const formRegister = document.getElementById("formRegister");
 const array2 = [login2, password, password2, firstname, lastname];
 
 //--------------------------------------------------------------------EVENTS----------------------------------------------
+
+for (let i = 0; i < array2.length; i++) {
+    array2[i].addEventListener("input", () => {
+        var bool = isMailCorrect2(login2) + isPasswordValid(password) + arePasswordsCorrect(password, password2) + isNameCorrect(firstname) + isNameCorrect(lastname) + isFieldEmpty2(login2) + isFieldEmpty2(password) + isFieldEmpty2(password2) + isFieldEmpty2(firstname) + isFieldEmpty2(lastname);
+        // console.log(bool);
+        if (bool == 10)
+            register.removeAttribute("disabled");
+        else
+            register.setAttribute("disabled", "disabled");
+    });
+}
 // for (let i = 0; i < array2.length; i++) {
 //     array2[i].addEventListener("input", ()=>{
 //         if(isFieldEmpty2(array2) && isMailCorrect2(login2) && is_valid_password(password) && isNameCorrect(firstname) && isNameCorrect(lastname) && arePasswordsCorrect(password, password2))
@@ -57,14 +68,3 @@ const array2 = [login2, password, password2, firstname, lastname];
 //         });
 //     });
 // }
-
-for (let i = 0; i < array2.length; i++) {
-    array2[i].addEventListener("input", () => {
-        var bool = isMailCorrect2(login2) + isPasswordValid(password) + arePasswordsCorrect(password, password2) + isNameCorrect(firstname) + isNameCorrect(lastname) + isFieldEmpty2(login2) + isFieldEmpty2(password) + isFieldEmpty2(password2) + isFieldEmpty2(firstname) + isFieldEmpty2(lastname);
-        console.log(bool);
-        if (bool == 10)
-            register.removeAttribute("disabled");
-        else
-            register.setAttribute("disabled", "disabled");
-    });
-}

@@ -1,13 +1,12 @@
 <?php
-    require_once PATH_SRC."models".DIRECTORY_SEPARATOR."question.model.php";
+require_once PATH_SRC."models".DIRECTORY_SEPARATOR."question.model.php";
 
 //TRAITEMENTS DES REQUETES POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["action"])){
         switch($_POST["action"]){
-            case "create":
+            case "create_questions":
                 extract($_POST);
-                // var_dump($_POST);die();
                 if($type_of_answer == "input"){
                     $tab_answers = [strtolower(trim($answer1))];
                     $correct = strtolower(trim($answer1));
@@ -20,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         $tab_answers[] = strtolower(trim($answer3));
                     if(isset($answer4)) 
                         $tab_answers[] = strtolower(trim($answer4));
-                    $correct = "";
+                    $correct = $reponse;
                 }
                 save_question($question, $type_of_answer, $number_of_points, $tab_answers, $correct);
             break;
@@ -45,9 +44,6 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
             case "create_questions":
                 create_questions();
             break;
-            case "create":
-                
-            break;
             default:
                 require_once PATH_VIEWS."security".DIRECTORY_SEPARATOR."error404.html.php";
             break;
@@ -71,13 +67,13 @@ function create_questions(){
     ob_start();
         require_once(PATH_VIEWS."question".DIRECTORY_SEPARATOR."createQuestions.html.php");
     $content_for_views = ob_get_clean();
-
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
     
 function save_question(string $question,string $type, string $score, array $answers, $correct){
     $errors = [];
 
+    // GESTION DE LA VALIDITÉ DE TOUS LES CHAMPS
     required_fields("question", $question, $errors);
     required_fields("score", $score, $errors);
     if(!isset($errors["score"]))
@@ -100,10 +96,10 @@ function save_question(string $question,string $type, string $score, array $answ
         }else{
             $_SESSION["not_saved_question"] =  "Question not saved !";
         }
-        header("Location:".WEB_ROOT."/index.php?controller=question&action=create_questions");
+        list_questions();
     }
     else{
         $_SESSION[KEY_ERRORS] = $errors;
-        header("Location:".WEB_ROOT."/index.php?controller=question&action=create_questions");
+        header("Location:".WEB_ROOT."?controller=question&action=create_questions");
     }
 }

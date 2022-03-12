@@ -306,13 +306,13 @@ i {
           justify-content: space-between;
   width: 100%;
   margin: auto;
-  margin-top: 2%;
+  margin-top: .5%;
 }
 
 .containerFormRegistration h2 {
   color: green;
   text-align: center;
-  margin-top: 3%;
+  margin: 1% 0;
 }
 
 .containerFormRegistration .the_avatar {
@@ -388,7 +388,7 @@ i {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0.7% 0;
+  padding: .7% 0;
   color: red;
   width: 90%;
   margin: auto;
@@ -422,7 +422,7 @@ i {
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
-  margin-top: 1%;
+  margin-top: .5%;
   width: 37%;
   text-align: center;
   margin-left: 30%;
@@ -527,11 +527,26 @@ i {
 }
 
 .containerCreateQuestions textarea,
-.containerCreateQuestions #number_of_points,
 .containerCreateQuestions #type_of_answer {
   margin-right: 15%;
   resize: none;
   background-color: #f0eef1;
+}
+
+.containerCreateQuestions #number_of_points {
+  margin-left: 3%;
+  background-color: #f0eef1;
+}
+
+.containerCreateQuestions span {
+  color: #51bfd0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.containerCreateQuestions .disabled {
+  color: gray;
+  cursor: not-allowed;
 }
 
 .containerCreateQuestions .question {
@@ -710,8 +725,9 @@ i {
 }
 
 .player {
+  height: 80vh;
   background-color: white;
-  width: 60%;
+  width: 90%;
   margin: auto;
 }
 
@@ -719,11 +735,11 @@ i {
   text-decoration: none;
   font-weight: bold;
   color: gray;
-  margin-left: 32%;
+  margin-left: 37%;
 }
 
 .player input[type="submit"] {
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 
 .player form {
@@ -731,11 +747,15 @@ i {
 }
 
 .player form div {
-  margin-bottom: 1%;
+  margin-bottom: .5%;
 }
 
 .player form input {
-  padding: 0.8em;
+  padding: .6em;
+}
+
+.game {
+  height: 100%;
 }
 
 .game a {
@@ -753,6 +773,93 @@ i {
 .game a:hover {
   background-color: #f0eef1;
   color: #51bfd0;
+}
+
+.game .left_head {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  height: 25%;
+  padding: .4%;
+}
+
+.game .left_head img {
+  padding: .2%;
+  width: 150px;
+  height: 150px;
+}
+
+.game .body {
+  height: 75%;
+  background-color: #f0eef1;
+}
+
+.game .questions {
+  margin: auto;
+  width: 40%;
+  height: 50vh;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 2%;
+}
+
+.game .questions h2 {
+  text-align: center;
+}
+
+.game .questions .question, .game .questions .button {
+  height: 20%;
+}
+
+.game .questions .reponses {
+  height: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.game .questions .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.game .questions .button button {
+  width: 100%;
+  background-color: black;
+  padding: 1.5rem 1.5rem;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+}
+
+.game .questions .button button:hover {
+  background-color: #51bfd0;
+}
+
+.game .questions .button button:disabled {
+  background-color: gray;
+  color: gray;
 }
 
 .Error404 {

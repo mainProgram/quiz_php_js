@@ -24,3 +24,7 @@ define("KEY_ERRORS", "errors");
 
 //Clé de l'utilisateur connecté
 define("KEY_USER_CONNECT", "user_connect");
+
+// Définition des rôles
+define("ROLE_ADMIN", "admin");
+define("ROLE_PLAYER", "player");
