@@ -103,7 +103,7 @@ addCheckbox.addEventListener("click", () => {
 
         label = document.createElement("label");
         label.setAttribute("for", id);
-        label.innerHTML = "Answer";
+        label.innerHTML = "Answer"+i;
 
         input = document.createElement("input");
         input.setAttribute("name", id);
@@ -224,6 +224,7 @@ function removeInput(id) {
     inputToDelete.parentElement.style.opacity = "0.4";
     setTimeout("inputToDelete.parentElement.remove()", 300);
     verif()
+    // i--
 }
 
 function isFieldEmpty3(array) {
@@ -287,3 +288,9 @@ function isOneAtLeastChecked(array) {
     return true
 }
 
+function updateLabels(){
+    const labels = document.querySelectorAll("label")
+    labels.forEach((label, i)=>{
+        label.innerHTML = "Answer"+(i+1);
+    })
+}

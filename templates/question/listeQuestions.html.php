@@ -55,4 +55,3 @@
 <?php else :?>
     <h1 style="background-color: red;">Il n'y a pas de questions !</h1>
 <?php endif?>
-

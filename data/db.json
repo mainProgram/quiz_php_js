@@ -151,6 +151,14 @@
         "role": "admin",
         "avatar": "faye45_admin.svg",
         "score": 0
+    }, {
+        "lastName": "DIOP",
+        "firstName": "Fama Zeyna Faye",
+        "login": "fmmmkaye@gmail.com",
+        "password": "passer1",
+        "role": "admin",
+        "avatar": "",
+        "score": 0
     }],
     "questions": [{
         "question": "Who is the best football player?",
@@ -224,5 +232,11 @@
         "type": "one",
         "correct": ["1"],
         "answers": ["1927", "2000", "400", "1967"]
+    }, {
+        "question": "Fin de la premiere guerre mondiale",
+        "score": "97",
+        "type": "one",
+        "correct": ["1"],
+        "answers": ["1918"]
     }]
 }

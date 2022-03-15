@@ -150,7 +150,7 @@ function register(string $login2, string $password, string $password2, string $l
             unset($_SESSION["login2"]);
             unset($_SESSION["firstname"]);
             unset($_SESSION["lastname"]);
-            ob_start();
+            //  ob_start();
                 $_SESSION["created_account"] =  "Account created !";
                 if(is_admin()){
                     ob_start();

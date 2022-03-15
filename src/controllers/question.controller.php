@@ -59,13 +59,12 @@ function list_questions(){
         $questions = find_data("questions");
         require_once(PATH_VIEWS."question".DIRECTORY_SEPARATOR."listeQuestions.html.php");
     $content_for_views = ob_get_clean();
-
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
 
 function create_questions(){
     ob_start();
-        require_once(PATH_VIEWS."question".DIRECTORY_SEPARATOR."createQuestions.html.php");
+         require_once(PATH_VIEWS."question".DIRECTORY_SEPARATOR."createQuestions.html.php");
     $content_for_views = ob_get_clean();
     require_once(PATH_VIEWS."user".DIRECTORY_SEPARATOR."home.html.php");
 }
@@ -92,14 +91,13 @@ function save_question(string $question,string $type, string $score, array $answ
             "answers"=> $answers
         );
         if(save_data("questions", $newRegistration)){
-            $_SESSION["saved_question"] =  "Question saved !";
+            $_SESSION["saved_question"] =  "Question created !";
         }else{
-            $_SESSION["not_saved_question"] =  "Question not saved !";
+
         }
-        list_questions();
     }
     else{
         $_SESSION[KEY_ERRORS] = $errors;
-        header("Location:".WEB_ROOT."?controller=question&action=create_questions");
     }
+    create_questions();
 }
